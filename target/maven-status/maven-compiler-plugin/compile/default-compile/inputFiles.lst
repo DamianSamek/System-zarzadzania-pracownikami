@@ -1,2 +1,3 @@
-/home/damian/Pulpit/project/src/main/java/ur/edu/pl/project/controller/HomeController.java
-/home/damian/Pulpit/project/src/main/java/ur/edu/pl/project/ProjectApplication.java
+/home/admind/Pulpit/project/src/main/java/ur/edu/pl/project/ProjectApplication.java
+/home/admind/Pulpit/project/src/main/java/ur/edu/pl/project/config/MyConfiguration.java
+/home/admind/Pulpit/project/src/main/java/ur/edu/pl/project/controller/HomeController.java
