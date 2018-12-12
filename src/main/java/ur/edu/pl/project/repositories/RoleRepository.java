@@ -6,7 +6,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import ur.edu.pl.project.model.Role;
 
-@RepositoryRestResource(exported = false)
+@RepositoryRestResource(collectionResourceRel = "role", path = "role")
 public interface RoleRepository extends JpaRepository<Role, Integer> {
 
     Role findByRole(@Param("role") String role);

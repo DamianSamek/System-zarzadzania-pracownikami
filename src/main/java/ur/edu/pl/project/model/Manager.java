@@ -1,4 +1,15 @@
 package ur.edu.pl.project.model;
 
-public class Manager extends User {
+import lombok.Data;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="project")
+@Data
+
+public class Manager {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int id;
 }

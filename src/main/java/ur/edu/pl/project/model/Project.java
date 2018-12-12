@@ -13,32 +13,26 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name="employee")
+@Table(name="project")
 @Data
-public class Employee {
+public class Project {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     @Size(max=45)
-    private String phone;
-    @Size(max=45)
-    private String position;
-    @Size(max=45)
-    private String streetAddress;
-    @Size(max=256)
-    private String postalCode;
-    @Size(max=45)
-    private String state;
-    @Size(max=45)
-    private String city;
-    private boolean enabled;
-
-    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinColumn(name = "user_id", nullable = true)
-    private User user;
+    private String client;
+    @Size(max=250)
+    private String description;
 
 
-//    List<Project> projects;
+
+    private int fee;
+    @Size(max=45)
+
+    private boolean finished;
+
+
+//    List<Employee> employees;
 
 }
