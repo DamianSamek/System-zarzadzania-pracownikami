@@ -38,6 +38,20 @@ public class Employee {
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
+    @Transient
+    @JsonProperty(access=Access.WRITE_ONLY)
+    @Size(max = 65)
+    private String firstName;
+    @Transient
+    @JsonProperty(access=Access.WRITE_ONLY)
+    @Size(max = 65)
+    private String secondName;
+    @Transient
+    @JsonProperty(access=Access.WRITE_ONLY)
+    @Email
+    @Size(max = 65)
+    private String email;
+
 
 //    List<Project> projects;
 

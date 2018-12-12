@@ -10,8 +10,9 @@ import ur.edu.pl.project.model.Employee;
 import ur.edu.pl.project.model.User;
 
 @RepositoryRestResource(collectionResourceRel = "employee", path = "employee")
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    List<Employee> findByPhone(@Param("phone") String phone);
+    Employee findByUserEmail(@Param("email") String email);
+
 
 }

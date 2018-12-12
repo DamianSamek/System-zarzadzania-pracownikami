@@ -9,8 +9,8 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import ur.edu.pl.project.model.User;
 
 @RepositoryRestResource(collectionResourceRel = "user", path = "user")
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
-    List<User> findBySecondName(@Param("name") String secondName);
+    User findByEmail(@Param("email") String email);
 
 }
