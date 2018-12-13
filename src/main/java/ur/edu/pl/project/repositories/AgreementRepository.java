@@ -11,7 +11,7 @@ import ur.edu.pl.project.model.Employee;
 import ur.edu.pl.project.model.User;
 
 @RepositoryRestResource(collectionResourceRel = "agreement", path = "agreement")
-public interface AgreementRepository extends JpaRepository<Agreement, Long> {
+public interface AgreementRepository extends JpaRepository<Agreement, Integer> {
 
     List<Agreement> findByNumber(@Param("number") String number);
 

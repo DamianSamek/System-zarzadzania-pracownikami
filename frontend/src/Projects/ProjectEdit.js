@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavbar from '../AppNavbar';
 
-class UserEdit extends Component {
+class ProjectEdit extends Component {
 
   emptyItem = {
     firstName: '',
@@ -23,8 +23,8 @@ class UserEdit extends Component {
 
   async componentDidMount() {
     if (this.props.match.params.id !== 'new') {
-      const user = await (await fetch(`/api/user/${this.props.match.params.id}`)).json();
-      this.setState({item: user});
+      const project = await (await fetch(`/api/project/${this.props.match.params.id}`)).json();
+      this.setState({item: project});
     }
   }
 
@@ -41,7 +41,7 @@ class UserEdit extends Component {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch('/api/user', {
+    await fetch('/api/project', {
       method: (item.id) ? 'PATCH' : 'POST',
       headers: {
         'Accept': 'application/json',
@@ -49,12 +49,12 @@ class UserEdit extends Component {
       },
       body: JSON.stringify(item),
     });
-    this.props.history.push('/user');
+    this.props.history.push('/project');
   }
 
   render() {
     const {item} = this.state;
-    const title = <h2>{item.id ? 'Edycja użytkownika' : 'Dodawanie użytkownika'}</h2>;
+    const title = <h2>{item.id ? 'Edycja projektu' : 'Dodawanie projektu'}</h2>;
 
     return <div>
       <AppNavbar/>
@@ -78,7 +78,7 @@ class UserEdit extends Component {
                    </FormGroup>
           <FormGroup>
             <Button color="primary" type="submit">Zapisz</Button>{' '}
-            <Button color="secondary" tag={Link} to="/user">Anuluj</Button>
+            <Button color="secondary" tag={Link} to="/project">Anuluj</Button>
           </FormGroup>
         </Form>
       </Container>
@@ -86,4 +86,4 @@ class UserEdit extends Component {
   }
 }
 
-export default withRouter(UserEdit);
+export default withRouter(ProjectEdit);

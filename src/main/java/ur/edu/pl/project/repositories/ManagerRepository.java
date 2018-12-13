@@ -11,7 +11,7 @@ import ur.edu.pl.project.model.Manager;
 import ur.edu.pl.project.model.User;
 
 @RepositoryRestResource(collectionResourceRel = "manager", path = "manager")
-public interface ManagerRepository extends JpaRepository<Manager, Long> {
+public interface ManagerRepository extends JpaRepository<Manager, Integer> {
 
 //    List<Employee> findByPhone(@Param("phone") String phone);
 

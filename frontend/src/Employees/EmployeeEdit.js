@@ -3,13 +3,15 @@ import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavbar from '../AppNavbar';
 
-class UserEdit extends Component {
+class EmployeeEdit extends Component {
 
   emptyItem = {
-    firstName: '',
+    user: {
+      firstName: '',
     secondName: '',
-    email: '',
-    enabled: ''
+    email: ''},
+    position: '',
+    phone: '',
   };
 
   constructor(props) {
@@ -23,8 +25,8 @@ class UserEdit extends Component {
 
   async componentDidMount() {
     if (this.props.match.params.id !== 'new') {
-      const user = await (await fetch(`/api/user/${this.props.match.params.id}`)).json();
-      this.setState({item: user});
+      const employee = await (await fetch(`/api/employee/${this.props.match.params.id}`)).json();
+      this.setState({item: employee});
     }
   }
 
@@ -41,20 +43,22 @@ class UserEdit extends Component {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch('/api/user', {
+    await fetch('/api/employee?projection=withUserDetails', {
       method: (item.id) ? 'PATCH' : 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(item),
+      
     });
-    this.props.history.push('/user');
+    this.props.history.push('/employee');
   }
 
   render() {
     const {item} = this.state;
-    const title = <h2>{item.id ? 'Edycja użytkownika' : 'Dodawanie użytkownika'}</h2>;
+    const title = <h2>{item.id ? 'Edycja pracownika' : 'Dodawanie pracownika'}</h2>;
+    console.log(item);
 
     return <div>
       <AppNavbar/>
@@ -77,8 +81,22 @@ class UserEdit extends Component {
                    onChange={this.handleChange} autoComplete="address-level1"/>
                    </FormGroup>
           <FormGroup>
+
+            </FormGroup>
+            <Label for="phone">Telefon</Label>
+            <Input type="text" name="phone" id="phone" value={item.phone || ''}
+                   onChange={this.handleChange} autoComplete="address-level1"/>
+                
+          <FormGroup>
+
+            </FormGroup>
+            <Label for="phone">Stanowisko</Label>
+            <Input type="text" name="position" id="position" value={item.position || ''}
+                   onChange={this.handleChange} autoComplete="address-level1"/>
+                
+          <FormGroup>
             <Button color="primary" type="submit">Zapisz</Button>{' '}
-            <Button color="secondary" tag={Link} to="/user">Anuluj</Button>
+            <Button color="secondary" tag={Link} to="/employee">Anuluj</Button>
           </FormGroup>
         </Form>
       </Container>
@@ -86,4 +104,4 @@ class UserEdit extends Component {
   }
 }
 
-export default withRouter(UserEdit);
+export default withRouter(EmployeeEdit);
