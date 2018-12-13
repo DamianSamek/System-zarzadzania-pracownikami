@@ -1,6 +1,7 @@
 package ur.edu.pl.project.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,13 +11,11 @@ import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 //import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import ur.edu.pl.project.exceptions.UserCreateException;
 import ur.edu.pl.project.model.User;
+import ur.edu.pl.project.repositories.UserRepository;
 import ur.edu.pl.project.services.UserService;
 
 @RepositoryRestController
@@ -25,6 +24,8 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private UserRepository userRepository;
 
 
 //	@RequestMapping(method = RequestMethod.PATCH, value = "/users/account/changepassword")

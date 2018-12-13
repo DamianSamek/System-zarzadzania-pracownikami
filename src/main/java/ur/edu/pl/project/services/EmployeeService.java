@@ -7,6 +7,7 @@ import ur.edu.pl.project.exceptions.ErrorResponseCodes;
 import ur.edu.pl.project.exceptions.UserCreateException;
 import ur.edu.pl.project.model.Employee;
 import ur.edu.pl.project.model.User;
+import ur.edu.pl.project.model.dto.EmployeeUserDto;
 import ur.edu.pl.project.model.enums.Roles;
 import ur.edu.pl.project.repositories.EmployeeRepository;
 import ur.edu.pl.project.repositories.RoleRepository;
@@ -89,5 +90,11 @@ public class EmployeeService {
             existingEmployee.setPosition(employee.getPosition());
         if(employee.getEmail() != null)
             existingEmployee.getUser().setEmail(employee.getEmail());
+    }
+
+    public EmployeeUserDto getEmployeeUserDto(Employee employee) {
+        User userFromEmployee = employee.getUser();
+        return new EmployeeUserDto(employee.getId(), userFromEmployee.getFirstName(), userFromEmployee.getSecondName(),
+                userFromEmployee.getEmail());
     }
 }

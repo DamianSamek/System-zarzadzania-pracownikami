@@ -9,6 +9,8 @@ import ur.edu.pl.project.model.User;
 import ur.edu.pl.project.repositories.RoleRepository;
 import ur.edu.pl.project.repositories.UserRepository;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -43,6 +45,7 @@ public class UserService {
         }
         return user;
     }
+
 
 //    public User modifyUser(User user) throws UserCreateException {
 //
