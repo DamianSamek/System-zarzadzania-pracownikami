@@ -1,0 +1,12 @@
+.form {
+    padding: 1em;
+}
+
+label {
+    display: flex;
+    font-weight: 600;
+}
+
+button {
+    justify-content: flex-end;
+}
