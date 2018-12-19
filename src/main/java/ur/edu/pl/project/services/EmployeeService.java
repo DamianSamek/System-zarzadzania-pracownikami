@@ -19,13 +19,15 @@ public class EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final RoleRepository roleRepository;
     private final StringUtils stringUtils;
+    private final EncryptionService encryptionService;
 
     @Autowired
-    public EmployeeService(EmployeeRepository eRepo, RoleRepository rRepo, StringUtils sUtils)
+    public EmployeeService(EmployeeRepository eRepo, RoleRepository rRepo, StringUtils sUtils, EncryptionService es)
     {
         this.employeeRepository=eRepo;
         this.roleRepository=rRepo;
         this.stringUtils = sUtils;
+        this.encryptionService=es;
     }
 
     public void createEmployee(Employee employee) throws UserCreateException {
@@ -41,10 +43,11 @@ public class EmployeeService {
                 User newUser = new User();
                 newUser.setRole(roleRepository.findByRole(Roles.ROLE_EMPLOYEE.toString()));
                 newUser.setEmail(employee.getEmail());
-                newUser.setPassword("damian");
+                newUser.setPassword(encryptionService.encode("damian"));
                 newUser.setEnabled(true);
                 newUser.setFirstName(employee.getFirstName());
                 newUser.setSecondName(employee.getSecondName());
+                newUser.setTokenValid(true);
 
                 employee.setUser(newUser);
                 //sendEmail("createCustomer", customer);
@@ -58,7 +61,7 @@ public class EmployeeService {
     public void modifyEmployee(Employee employee) throws UserCreateException {
 
         Employee existingEmployee = findEmployeeById(employee);
-        setFieldsForCustomer(employee, existingEmployee);
+        setFieldsForEmployee(employee, existingEmployee);
 
 
         employeeRepository.save(existingEmployee);
@@ -71,7 +74,7 @@ public class EmployeeService {
         return existingEmployee;
     }
 
-    private void setFieldsForCustomer(Employee employee, Employee existingEmployee) {
+    private void setFieldsForEmployee(Employee employee, Employee existingEmployee) {
         if	(employee.getPhone() != null)
             existingEmployee.setPhone(employee.getPhone());
         if (employee.getFirstName() != null)

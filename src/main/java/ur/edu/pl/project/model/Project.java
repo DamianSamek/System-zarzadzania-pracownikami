@@ -28,7 +28,6 @@ public class Project {
 
 
     private int fee;
-    @Size(max=45)
 
     private boolean finished;
 

@@ -29,7 +29,7 @@ public class Agreement {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateFrom;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd")
     private Date dateTo;
 
     @CreationTimestamp
@@ -40,10 +40,6 @@ public class Agreement {
     @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinColumn(name="id_employee")
     public Employee employee;
-
-    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinColumn(name="id_manager")
-    public Manager manager;
 
     private int salary;
 

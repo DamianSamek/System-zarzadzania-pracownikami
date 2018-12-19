@@ -13,5 +13,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     User findByEmail(@Param("email") String email);
 
+    User findByResetToken(@Param("resetToken") String resetToken);
+
 
 }

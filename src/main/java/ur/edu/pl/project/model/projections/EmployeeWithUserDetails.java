@@ -12,6 +12,13 @@ public interface EmployeeWithUserDetails {
     String getPhone();
     String getPosition();
 
-    @Value("#{@employeeService.getEmployeeUserDto(target)}")
-    EmployeeUserDto getUser();
+    @Value("#{@employeeService.getEmployeeUserDto(target).getFirstName()}")
+    String getFirstName();
+
+    @Value("#{@employeeService.getEmployeeUserDto(target).getSecondName()}")
+    String getSecondName();
+
+    @Value("#{@employeeService.getEmployeeUserDto(target).getEmail()}")
+    String getEmail();
+
 }

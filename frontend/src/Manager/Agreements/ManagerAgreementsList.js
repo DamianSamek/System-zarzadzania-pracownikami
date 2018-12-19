@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup, Container, Table } from 'reactstrap';
-import AppNavbar from '../AppNavbar';
+import ManagerAppNavbar from '../ManagerAppNavbar';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-class UsersList extends Component {
+class ManagerAgreementsList extends Component {
 
   constructor(props) {
     super(props);
@@ -16,7 +16,11 @@ class UsersList extends Component {
     this.setState({isLoading: true});
 
 
-    axios.get('/api/agreement?projection=withEmployeeDetails')
+    axios.get('/api/agreement?projection=withEmployeeDetails',{
+      headers: {
+        Authorization: localStorage.getItem("token")
+      } 
+    })
   .then(
     response => {
         const data = response.data._embedded.agreement;
@@ -48,8 +52,9 @@ class UsersList extends Component {
   }
 
   render() {
-    const {agreements, isLoading} = this.state;
-
+    if(localStorage.getItem("loggedUserRole")==="ROLE_MANAGER")
+    {
+      const {agreements, isLoading} = this.state;
     if (isLoading) {
       return <p>Loading...</p>;
     }
@@ -66,7 +71,7 @@ class UsersList extends Component {
         
         <td>
           <ButtonGroup>
-            <Button size="sm" color="primary" tag={Link} to={"/agreement/" + agreement.id}>Edytuj</Button>
+            <Button size="sm" color="primary" tag={Link} to={"/manager/agreement/" + agreement.id}>Edytuj</Button>
             <Button size="sm" color="danger" onClick={() => this.remove(agreement.id)}>Usuń</Button>
           </ButtonGroup>
         </td>
@@ -75,10 +80,10 @@ class UsersList extends Component {
 
     return (
       <div>
-        <AppNavbar/>
+        <ManagerAppNavbar/>
         <Container fluid>
           <div className="float-right">
-            <Button color="success" tag={Link} to="/agreement/new">Dodaj umowę</Button>
+            <Button color="success" tag={Link} to="/manager/agreement/new">Dodaj umowę</Button>
           </div>
           <h3>Zarządzaj umowami</h3>
           <Table className="mt-4">
@@ -101,7 +106,8 @@ class UsersList extends Component {
         </Container>
       </div>
     );
-  }
+  } else return <div>BRAK DOSTĘPU</div>;
+}
 }
 
-export default UsersList;
+export default ManagerAgreementsList;

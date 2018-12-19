@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
-import AppNavbar from '../AppNavbar';
+import ManagerAppNavbar from '../ManagerAppNavbar';
 
-class EmployeeEdit extends Component {
+class ManagerUserEdit extends Component {
 
   emptyItem = {
-    user: {
-      firstName: '',
+    firstName: '',
     secondName: '',
-    email: ''},
-    position: '',
-    phone: '',
+    email: '',
+    enabled: ''
   };
 
   constructor(props) {
@@ -25,8 +23,12 @@ class EmployeeEdit extends Component {
 
   async componentDidMount() {
     if (this.props.match.params.id !== 'new') {
-      const employee = await (await fetch(`/api/employee/${this.props.match.params.id}`)).json();
-      this.setState({item: employee});
+      const user = await (await fetch(`/api/user/${this.props.match.params.id}`,{
+        headers: {
+          'Authorization': localStorage.getItem("token")
+        }
+      })).json();
+      this.setState({item: user});
     }
   }
 
@@ -43,25 +45,24 @@ class EmployeeEdit extends Component {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch('/api/employee?projection=withUserDetails', {
+    await fetch('/api/user', {
       method: (item.id) ? 'PATCH' : 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(item),
-      
     });
-    this.props.history.push('/employee');
+    this.props.history.push('/manager/user');
   }
 
   render() {
+    if(localStorage.getItem("loggedUserRole")==="ROLE_MANAGER"){
     const {item} = this.state;
-    const title = <h2>{item.id ? 'Edycja pracownika' : 'Dodawanie pracownika'}</h2>;
-    console.log(item);
+    const title = <h2>{item.id ? 'Edycja użytkownika' : 'Dodawanie użytkownika'}</h2>;
 
     return <div>
-      <AppNavbar/>
+      <ManagerAppNavbar/>
       <Container>
         {title}
         <Form onSubmit={this.handleSubmit}>
@@ -81,27 +82,13 @@ class EmployeeEdit extends Component {
                    onChange={this.handleChange} autoComplete="address-level1"/>
                    </FormGroup>
           <FormGroup>
-
-            </FormGroup>
-            <Label for="phone">Telefon</Label>
-            <Input type="text" name="phone" id="phone" value={item.phone || ''}
-                   onChange={this.handleChange} autoComplete="address-level1"/>
-                
-          <FormGroup>
-
-            </FormGroup>
-            <Label for="phone">Stanowisko</Label>
-            <Input type="text" name="position" id="position" value={item.position || ''}
-                   onChange={this.handleChange} autoComplete="address-level1"/>
-                
-          <FormGroup>
             <Button color="primary" type="submit">Zapisz</Button>{' '}
-            <Button color="secondary" tag={Link} to="/employee">Anuluj</Button>
+            <Button color="secondary" tag={Link} to="/manager/user">Anuluj</Button>
           </FormGroup>
         </Form>
       </Container>
-    </div>
+    </div>}else return <div>BRAK DOSTĘPU</div>
   }
 }
 
-export default withRouter(EmployeeEdit);
+export default withRouter(ManagerUserEdit);

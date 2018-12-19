@@ -1,15 +1,24 @@
 package ur.edu.pl.project.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
-import lombok.Data;
+import java.time.LocalDate;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
+import lombok.Data;
+
 
 @Entity
 @Table(name="user")
@@ -17,7 +26,7 @@ import java.time.LocalDate;
 public class User {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     @Size(max=45)
     private String firstName;
@@ -30,7 +39,7 @@ public class User {
     private String email;
     @NotNull
     @NotEmpty
-    @JsonProperty(access= Access.WRITE_ONLY)
+    @JsonProperty(access=Access.WRITE_ONLY)
     @Size(max=256)
     private String password;
     private boolean enabled;
@@ -39,4 +48,10 @@ public class User {
     @JoinColumn(name="id_role")
     public Role role;
 
+    @Size(max=65)
+    private String resetToken;
+
+    private LocalDate validDate;
+    @NotNull
+    private boolean tokenValid;
 }

@@ -1,30 +1,39 @@
 import React, { Component } from 'react';
 import './App.css';
-import Home from './Home';
+import ManagerHome from './Manager/ManagerHome';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import EmployeeList from './Employees/EmployeeList';
-import EmployeeEdit from './Employees/EmployeeEdit';
-import UserEdit from'./Users/UserEdit';
-import UsersList from './Users/UsersList';
-import ProjectsList from './Projects/ProjectsList';
-import ProjectEdit from './Projects/ProjectEdit';
-import AgreementsList from './Agreements/AgreementsList';
-import AgreementEdit from './Agreements/AgreementEdit';
+import ManagerEmployeeList from './Manager/Employees/ManagerEmployeeList';
+import ManagerEmployeeEdit from './Manager/Employees/ManagerEmployeeEdit';
+import ManagerUserEdit from'./Manager/Users/ManagerUserEdit';
+import ManagerUsersList from './Manager/Users/ManagerUsersList';
+import ManagerProjectsList from './Manager/Projects/ManagerProjectsList';
+import ManagerProjectEdit from './Manager/Projects/ManagerProjectEdit';
+import ManagerAgreementsList from './Manager/Agreements/ManagerAgreementsList';
+import ManagerAgreementEdit from './Manager/Agreements/ManagerAgreementEdit';
+import Login from './Components/Login';
+import EmployeeHome from './Employee/EmployeeHome';
+import EmployeeAgreementsList from './Employee/Agreements/EmployeeAgreementsList';
+import EmployeeProjectsList from './Employee/Projects/EmployeeProjectsList';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <Switch>
-          <Route path='/' exact={true} component={Home}/>
-          <Route path='/user' exact={true} component={UsersList}/>
-          <Route path='/user/:id' component={UserEdit}/>
-          <Route path='/employee' exact={true} component={EmployeeList}/>
-          <Route path='/employee/:id' component={EmployeeEdit}/>
-          <Route path='/project' exact={true} component={ProjectsList}/>
-          <Route path='/project/:id' exact={true} component={ProjectEdit}/>
-          <Route path='/agreement' exact={true} component={AgreementsList}/>
-          <Route path='/agreement/:id' exact={true} component={AgreementEdit}/>
+          <Route path='/' exact={true} component={Login}/>
+          <Route path='/manager' exact={true} component={ManagerHome}/>
+          <Route path='/manager/user' exact={true} component={ManagerUsersList}/>
+          <Route path='/manager/user/:id' component={ManagerUserEdit}/>
+          <Route path='/manager/employee' exact={true} component={ManagerEmployeeList}/>
+          <Route path='/manager/employee/:id' component={ManagerEmployeeEdit}/>
+          <Route path='/manager/project' exact={true} component={ManagerProjectsList}/>
+          <Route path='/manager/project/:id' exact={true} component={ManagerProjectEdit}/>
+          <Route path='/manager/agreement' exact={true} component={ManagerAgreementsList}/>
+          <Route path='/manager/agreement/:id' exact={true} component={ManagerAgreementEdit}/>
+          <Route path='/employee' exact={true} component={EmployeeHome}/>
+          <Route path='/employee/agreement' exact={true} component={EmployeeAgreementsList}/>
+          <Route path='/employee/project' exact={true} component={EmployeeProjectsList}/>
+          
         </Switch>
       </Router>
     )

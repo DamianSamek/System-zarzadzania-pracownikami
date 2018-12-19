@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup, Container, Table } from 'reactstrap';
-import AppNavbar from '../AppNavbar';
+import ManagerAppNavbar from '../ManagerAppNavbar';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-class EmployeeList extends Component {
+class ManagerUsersList extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {employees: [], isLoading: true};
+    this.state = {users: [], isLoading: true};
     this.remove = this.remove.bind(this);
   }
 
@@ -16,11 +16,15 @@ class EmployeeList extends Component {
     this.setState({isLoading: true});
 
 
-    axios.get('/api/employee?projection=withUserDetails')
+    axios.get('/api/user', {
+      headers: {
+        Authorization: localStorage.getItem("token")
+      }
+    })
   .then(
     response => {
-        const data = response.data._embedded.employee;
-        this.setState({employees: data, isLoading:false});
+        const data = response.data._embedded.user;
+        this.setState({users: data, isLoading:false});
             
     }    
   )
@@ -35,38 +39,38 @@ class EmployeeList extends Component {
   }
 
   async remove(id) {
-    await fetch(`/api/employee/${id}`, {
+    await fetch(`/api/user/${id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
     }).then(() => {
-      let updatedEmployees = [...this.state.employees].filter(i => i.id !== id);
-      this.setState({employees: updatedEmployees});
+      let updatedUsers = [...this.state.users].filter(i => i.id !== id);
+      this.setState({users: updatedUsers});
     });
   }
 
   render() {
-    const {employees, isLoading} = this.state;
+    if(localStorage.getItem("loggedUserRole")==="ROLE_MANAGER"){
+    const {users, isLoading} = this.state;
 
     if (isLoading) {
       return <p>Loading...</p>;
     }
-    console.log(employees);
-    const employeesList = employees.map(employee => {
+
+    const usersList = users.map(user => {
     //   const address = `${group.address || ''} ${group.city || ''} ${group.stateOrProvince || ''}`;
-      return <tr key={employee.id}>
-        <td style={{whiteSpace: 'nowrap'}}>{employee.user.firstName}</td>
-        <td>{employee.user.secondName}</td>
-        <td>{employee.user.email}</td>
-        <td>{employee.phone}</td>
-        <td>{employee.position}</td>
+      return <tr key={user.id}>
+        <td style={{whiteSpace: 'nowrap'}}>{user.firstName}</td>
+        <td>{user.secondName}</td>
+        <td>{user.email}</td>
+        <td>{user.enabled.toString()}</td>
         
         <td>
           <ButtonGroup>
-            <Button size="sm" color="primary" tag={Link} to={"/employee/" + employee.id}>Edytuj</Button>
-            <Button size="sm" color="danger" onClick={() => this.remove(employee.id)}>Usuń</Button>
+            <Button size="sm" color="primary" tag={Link} to={"/manager/user/" + user.id}>Edytuj</Button>
+            <Button size="sm" color="danger" onClick={() => this.remove(user.id)}>Usuń</Button>
           </ButtonGroup>
         </td>
       </tr>
@@ -74,32 +78,30 @@ class EmployeeList extends Component {
 
     return (
       <div>
-        <AppNavbar/>
+        <ManagerAppNavbar/>
         <Container fluid>
           <div className="float-right">
-            <Button color="success" tag={Link} to="/employee/new">Dodaj pracownika</Button>
+            <Button color="success" tag={Link} to="/manager/user/new">Dodaj użytkownika</Button>
           </div>
-          <h3>Zarządzaj pracownikami</h3>
+          <h3>Zarządzaj użytkownikami</h3>
           <Table className="mt-4">
             <thead>
             <tr>
               <th width="20%">Imię</th>
               <th width="20%">Nazwisko</th>
               <th>E-mail</th>
-              <th>Telefon</th>
-              <th>Stanowisko</th>
+              <th>Aktywny</th>
               <th width="10%">Akcja</th>
-              
             </tr>
             </thead>
             <tbody>
-            {employeesList}
+            {usersList}
             </tbody>
           </Table>
         </Container>
       </div>
-    );
+    );}else return <div>BRAK DOSTĘPU</div>
   }
 }
 
-export default EmployeeList;
+export default ManagerUsersList;

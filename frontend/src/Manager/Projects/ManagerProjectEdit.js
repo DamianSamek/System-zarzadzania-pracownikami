@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
-import AppNavbar from '../AppNavbar';
+import ManagerAppNavbar from '../ManagerAppNavbar';
 
-class ProjectEdit extends Component {
+class ManagerProjectEdit extends Component {
 
   emptyItem = {
-    firstName: '',
-    secondName: '',
-    email: '',
-    enabled: ''
+    client: '',
+    description: '',
+    fee: '',
+    finished: ''
   };
 
   constructor(props) {
@@ -23,7 +23,12 @@ class ProjectEdit extends Component {
 
   async componentDidMount() {
     if (this.props.match.params.id !== 'new') {
-      const project = await (await fetch(`/api/project/${this.props.match.params.id}`)).json();
+      const project = await (await fetch(`/api/project/${this.props.match.params.id}`, {
+        headers: {
+          'Authorization': localStorage.getItem("token")
+        }
+      })).json();
+      console.log(project);
       this.setState({item: project});
     }
   }
@@ -41,49 +46,58 @@ class ProjectEdit extends Component {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch('/api/project', {
+    await fetch((item.id) ? `/api/project/${this.props.match.params.id}`: '/api/project/', {
       method: (item.id) ? 'PATCH' : 'POST',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem("token")
       },
       body: JSON.stringify(item),
     });
-    this.props.history.push('/project');
+    console.log(item);
+    this.props.history.push('/manager/project');
   }
 
   render() {
+    if(localStorage.getItem("loggedUserRole")==="ROLE_MANAGER")
+    {
     const {item} = this.state;
     const title = <h2>{item.id ? 'Edycja projektu' : 'Dodawanie projektu'}</h2>;
 
     return <div>
-      <AppNavbar/>
+      <ManagerAppNavbar/>
       <Container>
         {title}
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
-            <Label for="firstName">Imię</Label>
-            <Input type="text" name="firstName" id="firstName" value={item.firstName || ''}
+            <Label for="firstName">Klient</Label>
+            <Input type="text" name="client" id="client" value={item.client || ''}
                    onChange={this.handleChange} autoComplete="name"/>
           </FormGroup>
           <FormGroup>
-            <Label for="secondName">Nazwisko</Label>
-            <Input type="text" name="secondName" id="secondName" value={item.secondName || ''}
+            <Label for="secondName">Opis</Label>
+            <Input type="text" name="description" id="description" value={item.description || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
           </FormGroup>
           <FormGroup>
-            <Label for="email">E-mail</Label>
-            <Input type="text" name="email" id="email" value={item.email || ''}
+            <Label for="email">Stawka</Label>
+            <Input type="text" name="fee" id="fee" value={item.fee || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
-                   </FormGroup>
+          </FormGroup>
+          <FormGroup>
+            <Label for="email">Zakończony</Label>
+            <Input type="text" name="finished" id="finished" value={item.finished || ''}
+                   onChange={this.handleChange} autoComplete="address-level1"/>
+          </FormGroup>
           <FormGroup>
             <Button color="primary" type="submit">Zapisz</Button>{' '}
-            <Button color="secondary" tag={Link} to="/project">Anuluj</Button>
+            <Button color="secondary" tag={Link} to="/manager/project">Anuluj</Button>
           </FormGroup>
         </Form>
       </Container>
-    </div>
+    </div>} else return <div>BRAK DOSTĘPU</div>
   }
 }
 
-export default withRouter(ProjectEdit);
+export default withRouter(ManagerProjectEdit);
