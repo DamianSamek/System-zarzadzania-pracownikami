@@ -71,7 +71,7 @@ class ManagerEmployeeList extends Component {
         <td>
           <ButtonGroup>
             <Button size="sm" color="primary" tag={Link} to={"/manager/employee/" + employee.id}>Edytuj</Button>
-            <Button size="sm" color="danger" onClick={() => this.remove(employee.id)}>Usuń</Button>
+            <Button size="sm" color="danger" onClick={() => this.remove(employee.id)}>Zwolnij</Button>
           </ButtonGroup>
         </td>
       </tr>

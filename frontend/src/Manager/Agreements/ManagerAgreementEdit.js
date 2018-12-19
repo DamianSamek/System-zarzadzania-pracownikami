@@ -45,7 +45,7 @@ class ManagerAgreementEdit extends Component {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch('/api/agreement', {
+    await fetch((item.id)? `/api/agreement/${this.props.match.params.id}` : '/api/agreement/', {
       method: (item.id) ? 'PATCH' : 'POST',
       headers: {
         'Accept': 'application/json',
@@ -67,7 +67,7 @@ class ManagerAgreementEdit extends Component {
       <ManagerAppNavbar/>
       <Container>
         {title}
-        <Form onSubmit={this.handleSubmit}>
+        {item.id ? <Form onSubmit={this.handleSubmit}>
           <FormGroup>
             <Label for="dateFrom">Data rozpoczęcia</Label>
             <Input type="text" name="dateFrom" id="dateFrom" value={item.dateFrom || ''}
@@ -78,11 +78,49 @@ class ManagerAgreementEdit extends Component {
             <Input type="text" name="dateTo" id="dateTo" value={item.dateTo || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
                    </FormGroup>
+                   <Label for="email">Płaca</Label>
+            <Input type="text" name="salary" id="salary" value={item.salary || ''}
+                   onChange={this.handleChange} autoComplete="address-level1"/>
           <FormGroup>
             <Button color="primary" type="submit">Zapisz</Button>{' '}
             <Button color="secondary" tag={Link} to="/manager/agreement">Anuluj</Button>
           </FormGroup>
         </Form>
+        
+      :
+      
+      <Form onSubmit={this.handleSubmit}>
+          <FormGroup>
+            <Label for="dateFrom">Numer umowy:</Label>
+            <Input type="text" name="number" id="number"
+                   onChange={this.handleChange} autoComplete="address-level1"/>
+          </FormGroup>
+          <FormGroup>
+            <Label for="dateFrom">Data rozpoczęcia</Label>
+            <Input type="text" name="dateFrom" id="dateFrom"
+                   onChange={this.handleChange} autoComplete="address-level1"/>
+          </FormGroup>
+          <FormGroup>
+            <Label for="email">Data zakończenia</Label>
+            <Input type="text" name="dateTo" id="dateTo" 
+                   onChange={this.handleChange} autoComplete="address-level1"/>
+                   </FormGroup>
+                   <FormGroup>
+            <Label for="email">Płaca</Label>
+            <Input type="text" name="salary" id="salary" 
+                   onChange={this.handleChange} autoComplete="address-level1"/>
+                   </FormGroup>
+          <FormGroup>
+          <FormGroup>
+            <Label for="email">Email pracownika: </Label>
+            <Input type="text" name="employeeEmail" id="employeeEmail" 
+                   onChange={this.handleChange} autoComplete="address-level1"/>
+                   </FormGroup>
+            <Button color="primary" type="submit">Zapisz</Button>{' '}
+            <Button color="secondary" tag={Link} to="/manager/agreement">Anuluj</Button>
+          </FormGroup>
+        </Form>}
+        
       </Container>
     </div>
   }else return <div>BRAK DOSTĘPU</div>

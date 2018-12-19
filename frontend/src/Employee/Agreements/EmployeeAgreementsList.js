@@ -16,7 +16,7 @@ class EmployeeAgreementsList extends Component {
     this.setState({isLoading: true});
 
 
-    axios.get('/api/agreement?projection=withEmployeeDetails',{
+    axios.get('/api/agreement',{
       headers: {
         Authorization: localStorage.getItem("token")
       } 

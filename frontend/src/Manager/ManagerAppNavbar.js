@@ -23,7 +23,7 @@ class AppNavbar extends Component {
   render() {
     return <Navbar color="dark" dark expand="md">
       <NavbarBrand tag={Link} to="/manager">Home | </NavbarBrand>
-      <NavbarBrand tag={Link} to="/manager/user">Użytkownicy |</NavbarBrand>
+      {/* <NavbarBrand tag={Link} to="/manager/user">Użytkownicy |</NavbarBrand> */}
       <NavbarBrand tag={Link} to="/manager/employee">Pracownicy |</NavbarBrand>
       <NavbarBrand tag={Link} to="/manager/agreement">Umowy |</NavbarBrand>
       <NavbarBrand tag={Link} to="/manager/project">Projekty |</NavbarBrand>

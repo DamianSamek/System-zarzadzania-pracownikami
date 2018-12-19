@@ -5,6 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,5 +32,10 @@ public class EmployeeController {
         employeeService.modifyEmployee(employee);
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
+
+//    @RequestMapping(method = RequestMethod.GET, value = "/employeeAgreement")
+//    public ResponseEntity<?> getAgreements() {
+//        return new ResponseEntity<>(employeeService.getAgreements(), HttpStatus.OK);
+//    }
 
 }

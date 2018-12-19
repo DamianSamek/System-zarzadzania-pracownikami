@@ -54,5 +54,7 @@ public class Employee {
 
 
 //    List<Project> projects;
+    @OneToMany(mappedBy = "employee")
+    List<Agreement> agreements;
 
 }

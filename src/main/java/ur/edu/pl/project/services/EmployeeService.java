@@ -5,13 +5,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import ur.edu.pl.project.exceptions.ErrorResponseCodes;
 import ur.edu.pl.project.exceptions.UserCreateException;
+import ur.edu.pl.project.model.Agreement;
 import ur.edu.pl.project.model.Employee;
 import ur.edu.pl.project.model.User;
+import ur.edu.pl.project.model.dto.AgreementDTO;
 import ur.edu.pl.project.model.dto.EmployeeUserDto;
 import ur.edu.pl.project.model.enums.Roles;
 import ur.edu.pl.project.repositories.EmployeeRepository;
 import ur.edu.pl.project.repositories.RoleRepository;
 import ur.edu.pl.project.utils.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class EmployeeService {
@@ -20,14 +25,16 @@ public class EmployeeService {
     private final RoleRepository roleRepository;
     private final StringUtils stringUtils;
     private final EncryptionService encryptionService;
+    private final AuthService authService;
 
     @Autowired
-    public EmployeeService(EmployeeRepository eRepo, RoleRepository rRepo, StringUtils sUtils, EncryptionService es)
+    public EmployeeService(EmployeeRepository eRepo, RoleRepository rRepo, StringUtils sUtils, EncryptionService es, AuthService auth)
     {
         this.employeeRepository=eRepo;
         this.roleRepository=rRepo;
         this.stringUtils = sUtils;
         this.encryptionService=es;
+        this.authService=auth;
     }
 
     public void createEmployee(Employee employee) throws UserCreateException {
@@ -99,5 +106,14 @@ public class EmployeeService {
         User userFromEmployee = employee.getUser();
         return new EmployeeUserDto(employee.getId(), userFromEmployee.getFirstName(), userFromEmployee.getSecondName(),
                 userFromEmployee.getEmail());
+    }
+
+    public List<AgreementDTO> getAgreements(){
+        Employee employee = employeeRepository.findByUserEmail(authService.currentUser().getEmail());
+        ArrayList<AgreementDTO> agreementsDTO = new ArrayList<>();
+        if (employee.getAgreements() != null) {
+            employee.getAgreements().stream().forEach(a -> agreementsDTO.add(new AgreementDTO(a)));
+        }
+        return agreementsDTO;
     }
 }

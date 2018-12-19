@@ -37,7 +37,7 @@ public class Agreement {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateOfCreation;
 
-    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @ManyToOne
     @JoinColumn(name="id_employee")
     public Employee employee;
 
