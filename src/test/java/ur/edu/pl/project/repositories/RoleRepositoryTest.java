@@ -21,7 +21,7 @@ public class RoleRepositoryTest {
     @Autowired
     private RoleRepository roleRepository;
 
-    private Role role;
+    private Role role, role2;
 
 
     @Before
@@ -35,8 +35,8 @@ public class RoleRepositoryTest {
     @After
     public void after() throws Exception {
         //roleRepository.deleteAll();
-        roleRepository.delete(roleRepository.findByRole("ROLE1"));
-        roleRepository.delete(roleRepository.findByRole("ROLE2"));
+        roleRepository.delete(role);
+        roleRepository.delete(role2);
     }
 
 //    @Test
@@ -56,7 +56,7 @@ public class RoleRepositoryTest {
 
     @Test
     public void saveRole_Test() {
-        Role role2 = new Role();
+        role2 = new Role();
         role2.setRole("ROLE2");
         boolean add;
         if (roleRepository.save(role2) != null) {

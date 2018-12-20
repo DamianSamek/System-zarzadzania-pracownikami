@@ -21,7 +21,7 @@ public class ProjectRepositoryTest {
 
 @Autowired
 private ProjectRepository projectRepository;
-private Project project;
+private Project project, project2;
 
     @Before
     public void setUp() throws Exception {
@@ -37,8 +37,8 @@ private Project project;
     @After
     public void after() throws Exception {
         //projectRepository.deleteAll();
-        projectRepository.delete(projectRepository.findByClient("KGHM"));
-        projectRepository.delete(projectRepository.findByClient("NOKIA"));
+        projectRepository.delete(project);
+        projectRepository.delete(project2);
     }
 
 //    @Test
@@ -58,7 +58,7 @@ private Project project;
 
     @Test
     public void saveProject_Test() {
-        Project project2 = new Project();
+        project2 = new Project();
         project2.setClient("NOKIA");
         project2.setDescription("project");
         project2.setFee(6000);
