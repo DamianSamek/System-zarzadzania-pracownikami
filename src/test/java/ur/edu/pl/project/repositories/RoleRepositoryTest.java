@@ -36,7 +36,7 @@ public class RoleRepositoryTest {
     public void after() throws Exception {
         //roleRepository.deleteAll();
         roleRepository.delete(role);
-        roleRepository.delete(role2);
+
     }
 
 //    @Test
@@ -61,6 +61,7 @@ public class RoleRepositoryTest {
         boolean add;
         if (roleRepository.save(role2) != null) {
             add = true;
+            roleRepository.delete(role2);
         } else add = false;
         assertTrue(add);
     }

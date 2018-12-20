@@ -26,7 +26,7 @@ private Project project, project2;
     @Before
     public void setUp() throws Exception {
         project = new Project();
-        project.setClient("KGHM");
+        project.setClient("MOTOROLA");
         project.setDescription("project");
         project.setFee(5000);
         project.setFinished(true);
@@ -38,7 +38,7 @@ private Project project, project2;
     public void after() throws Exception {
         //projectRepository.deleteAll();
         projectRepository.delete(project);
-        projectRepository.delete(project2);
+       // projectRepository.delete(project2);
     }
 
 //    @Test
@@ -50,7 +50,7 @@ private Project project, project2;
     @Test
     public void getProjectByClient_Test() {
         boolean add;
-        if (projectRepository.findByClient("KGHM")!=null){
+        if (projectRepository.findByClient("MOTOROLA")!=null){
             add = true;
         } else add = false;
         assertTrue(add);
@@ -66,6 +66,7 @@ private Project project, project2;
         boolean add;
         if (projectRepository.save(project2) != null) {
             add = true;
+            projectRepository.delete(project2);
         } else add = false;
         assertTrue(add);
     }
