@@ -27,7 +27,7 @@ public class RoleRepositoryTest {
     @Before
     public void setUp() throws Exception {
         role = new Role();
-        role.setRole("ROLE_EMPLOYEE");
+        role.setRole("ROLE1");
         roleRepository.save(role);
 
     }
@@ -37,16 +37,16 @@ public class RoleRepositoryTest {
         roleRepository.deleteAll();
     }
 
-    @Test
-    public void deleteAll_Test() {
-        roleRepository.deleteAll();
-        assertTrue(roleRepository.findAll().isEmpty());
-    }
+//    @Test
+//    public void deleteAll_Test() {
+//        roleRepository.deleteAll();
+//        assertTrue(roleRepository.findAll().isEmpty());
+//    }
 
     @Test
     public void getRoleByRole_Test() {
         boolean add;
-        if (roleRepository.findByRole("ROLE_EMPLOYEE")!=null){
+        if (roleRepository.findByRole("ROLE1")!=null){
             add = true;
         } else add = false;
         assertTrue(add);
@@ -55,7 +55,7 @@ public class RoleRepositoryTest {
     @Test
     public void saveRole_Test() {
         Role role2 = new Role();
-        role2.setRole("ROLE_MANAGER");
+        role2.setRole("ROLE2");
         boolean add;
         if (roleRepository.save(role2) != null) {
             add = true;

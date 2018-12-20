@@ -101,7 +101,7 @@ class Login extends Component {
       </Col>
       <Col>
         <FormGroup>
-          <Label for="examplePassword">Password</Label>
+          <Label for="examplePassword">Hasło:</Label>
           <Input
             type="password"
             name="password"

@@ -108,12 +108,12 @@ public class EmployeeService {
                 userFromEmployee.getEmail());
     }
 
-    public List<AgreementDTO> getAgreements(){
-        Employee employee = employeeRepository.findByUserEmail(authService.currentUser().getEmail());
-        ArrayList<AgreementDTO> agreementsDTO = new ArrayList<>();
-        if (employee.getAgreements() != null) {
-            employee.getAgreements().stream().forEach(a -> agreementsDTO.add(new AgreementDTO(a)));
-        }
-        return agreementsDTO;
-    }
+//    public List<AgreementDTO> getAgreements(){
+//        Employee employee = employeeRepository.findByUserEmail(authService.currentUser().getEmail());
+//        ArrayList<AgreementDTO> agreementsDTO = new ArrayList<>();
+//        if (employee.getAgreements() != null) {
+//            employee.getAgreements().stream().forEach(a -> agreementsDTO.add(new AgreementDTO(a)));
+//        }
+//        return agreementsDTO;
+//    }
 }

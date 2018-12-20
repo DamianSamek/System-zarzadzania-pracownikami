@@ -39,11 +39,11 @@ private Project project;
         projectRepository.deleteAll();
     }
 
-    @Test
-    public void deleteAll_Test() {
-        projectRepository.deleteAll();
-        assertTrue(projectRepository.findAll().isEmpty());
-    }
+//    @Test
+//    public void deleteAll_Test() {
+//        projectRepository.deleteAll();
+//        assertTrue(projectRepository.findAll().isEmpty());
+//    }
 
     @Test
     public void getProjectByClient_Test() {
