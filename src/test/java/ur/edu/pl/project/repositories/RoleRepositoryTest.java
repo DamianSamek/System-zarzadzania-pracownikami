@@ -35,6 +35,8 @@ public class RoleRepositoryTest {
     @After
     public void after() throws Exception {
         //roleRepository.deleteAll();
+        roleRepository.delete(roleRepository.findByRole("ROLE1"));
+        roleRepository.delete(roleRepository.findByRole("ROLE2"));
     }
 
 //    @Test

@@ -37,6 +37,8 @@ private Project project;
     @After
     public void after() throws Exception {
         //projectRepository.deleteAll();
+        projectRepository.delete(projectRepository.findByClient("KGHM"));
+        projectRepository.delete(projectRepository.findByClient("NOKIA"));
     }
 
 //    @Test

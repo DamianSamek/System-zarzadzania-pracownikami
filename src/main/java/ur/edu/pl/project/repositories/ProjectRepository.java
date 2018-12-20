@@ -13,6 +13,6 @@ import ur.edu.pl.project.model.User;
 @RepositoryRestResource(collectionResourceRel = "project", path = "project")
 public interface ProjectRepository extends JpaRepository<Project, Integer> {
 
-    List<Project> findByClient(@Param("client") String client);
-
+    List<Project> findAllByClient(@Param("client") String client);
+    Project findByClient(@Param("client") String client);
 }
