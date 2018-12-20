@@ -36,7 +36,7 @@ private Project project;
 
     @After
     public void after() throws Exception {
-        projectRepository.deleteAll();
+        //projectRepository.deleteAll();
     }
 
 //    @Test

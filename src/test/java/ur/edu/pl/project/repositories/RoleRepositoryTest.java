@@ -34,7 +34,7 @@ public class RoleRepositoryTest {
 
     @After
     public void after() throws Exception {
-        roleRepository.deleteAll();
+        //roleRepository.deleteAll();
     }
 
 //    @Test
