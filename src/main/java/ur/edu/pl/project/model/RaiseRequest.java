@@ -6,9 +6,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
+import org.hibernate.annotations.Where;
 
 @Entity
 @Table(name="raise_request")
+@Where(clause = "considered=0")
 @Data
 public class RaiseRequest {
 
@@ -17,17 +19,19 @@ public class RaiseRequest {
     private int id;
 
 
-    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @ManyToOne
     @JoinColumn(name="id_employee")
     public Employee employee;
 
-    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @ManyToOne
     @JoinColumn(name="id_agreement")
     public Agreement agreement;
 
     private int salaryRequest;
 
     private boolean accepted;
+
+    private boolean considered;
 
 
 }

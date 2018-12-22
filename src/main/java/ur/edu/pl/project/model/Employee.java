@@ -1,5 +1,6 @@
 package ur.edu.pl.project.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import lombok.Data;
@@ -54,7 +55,12 @@ public class Employee {
 
 
 //    List<Project> projects;
+
+    @Transient
     @OneToMany(mappedBy = "employee")
     List<Agreement> agreements;
 
+    @Transient
+    @OneToMany(mappedBy = "employee")
+    List<RaiseRequest> raiseRequests;
 }

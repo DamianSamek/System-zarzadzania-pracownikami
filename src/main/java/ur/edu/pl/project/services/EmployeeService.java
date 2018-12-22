@@ -3,6 +3,7 @@ package ur.edu.pl.project.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import ur.edu.pl.project.exceptions.ApiException;
 import ur.edu.pl.project.exceptions.ErrorResponseCodes;
 import ur.edu.pl.project.exceptions.UserCreateException;
 import ur.edu.pl.project.model.Agreement;
@@ -106,6 +107,15 @@ public class EmployeeService {
         User userFromEmployee = employee.getUser();
         return new EmployeeUserDto(employee.getId(), userFromEmployee.getFirstName(), userFromEmployee.getSecondName(),
                 userFromEmployee.getEmail());
+    }
+
+    public void deleteEmployee(int id) throws ApiException{
+        Employee employee = employeeRepository.findById(id).get();
+        if(employee!=null) {
+            employee.setEnabled(false);
+            employeeRepository.save(employee);
+        }
+        else throw new ApiException("401",HttpStatus.BAD_REQUEST,"Nie znaleziono pracownika");
     }
 
 //    public List<AgreementDTO> getAgreements(){

@@ -10,5 +10,6 @@ import ur.edu.pl.project.model.Role;
 @RepositoryRestResource(collectionResourceRel = "raiserequest", path = "raiserequest")
 public interface RaiseRequestRepository extends JpaRepository<RaiseRequest, Integer> {
 
+    RaiseRequest findByAgreementId(@Param ("id") int id);
 
 }

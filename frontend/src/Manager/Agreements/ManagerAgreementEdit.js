@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Container, Form, FormGroup, Input, Label,ButtonDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'reactstrap';
 import ManagerAppNavbar from '../ManagerAppNavbar';
+import axios from 'axios';
 
 class ManagerAgreementEdit extends Component {
 
   emptyItem = {
     firstName: '',
     secondName: '',
-    email: '',
+    employeeEmail: '',
     enabled: ''
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      item: this.emptyItem
+      item: this.emptyItem,
+      dropdownOpen: false,
+      options: [],
+      dropdownValue: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
 
   async componentDidMount() {
@@ -30,15 +35,36 @@ class ManagerAgreementEdit extends Component {
       })).json();
       this.setState({item: agreement});
     }
+    else {
+      axios.get('/api/employee?projection=withUserDetails', {
+        headers: {
+          Authorization: window.localStorage.getItem("token") 
+        }
+      })
+    .then(
+      response => {
+          const data = response.data._embedded.employee;
+          this.setState({options: data, isLoading:false});
+              console.log(this.state.options);
+      }    
+    );
+    }
   }
 
   handleChange(event) {
+    // this.setState({dropdownValue: event.target.value})
     const target = event.target;
     const value = target.value;
     const name = target.name;
     let item = {...this.state.item};
     item[name] = value;
     this.setState({item});
+  }
+
+  toggle() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
   }
 
   async handleSubmit(event) {
@@ -110,15 +136,23 @@ class ManagerAgreementEdit extends Component {
             <Input type="text" name="salary" id="salary" 
                    onChange={this.handleChange} autoComplete="address-level1"/>
                    </FormGroup>
+          <FormGroup> </FormGroup>
           <FormGroup>
+          <ButtonDropdown onClick={this.handleChange}  isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <DropdownToggle caret>
+          E-mail pracownika
+          </DropdownToggle>
+          <DropdownMenu>
+            {this.state.options.map((option) => <DropdownItem name="employeeEmail" value={option.email} >{option.email}</DropdownItem>)}
+          </DropdownMenu>
+          </ButtonDropdown>
+          </FormGroup>
           <FormGroup>
-            <Label for="email">Email pracownika: </Label>
-            <Input type="text" name="employeeEmail" id="employeeEmail" 
-                   onChange={this.handleChange} autoComplete="address-level1"/>
-                   </FormGroup>
             <Button color="primary" type="submit">Zapisz</Button>{' '}
             <Button color="secondary" tag={Link} to="/manager/agreement">Anuluj</Button>
           </FormGroup>
+
+          
         </Form>}
         
       </Container>

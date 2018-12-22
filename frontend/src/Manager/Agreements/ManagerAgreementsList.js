@@ -40,15 +40,17 @@ class ManagerAgreementsList extends Component {
 
   async remove(id) {
     await fetch(`/api/agreement/${id}`, {
-      method: 'DELETE',
+      method: 'PATCH',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    }).then(() => {
-      let updatedAgreements = [...this.state.agreements].filter(i => i.id !== id);
-      this.setState({agreements: updatedAgreements});
-    });
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem("token")
+      }})
+      .then(() => {
+        let updatedEmployees = [...this.state.employees];
+        this.setState({employees: updatedEmployees});
+      });
+    
   }
 
   render() {
@@ -72,7 +74,7 @@ class ManagerAgreementsList extends Component {
         <td>
           <ButtonGroup>
             <Button size="sm" color="primary" tag={Link} to={"/manager/agreement/" + agreement.id}>Edytuj</Button>
-            <Button size="sm" color="danger" onClick={() => this.remove(agreement.id)}>Usuń</Button>
+            <Button size="sm" color="danger" onClick={() => this.remove(agreement.id)}>Zakończ</Button>
           </ButtonGroup>
         </td>
       </tr>

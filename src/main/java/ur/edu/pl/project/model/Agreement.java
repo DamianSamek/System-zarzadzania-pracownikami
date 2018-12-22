@@ -1,6 +1,7 @@
 package ur.edu.pl.project.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import lombok.Data;
@@ -37,6 +38,7 @@ public class Agreement {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateOfCreation;
 
+
     @ManyToOne
     @JoinColumn(name="id_employee")
     public Employee employee;
@@ -44,6 +46,10 @@ public class Agreement {
     private int salary;
 
     private boolean active;
+
+    @Transient
+    @OneToMany(mappedBy="agreement")
+    List<RaiseRequest> raiseRequests;
 
 
 

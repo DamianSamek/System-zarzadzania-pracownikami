@@ -3,11 +3,13 @@ package ur.edu.pl.project.model.dto;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import ur.edu.pl.project.model.Agreement;
 
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class AgreementDTO {
 
     private int id;

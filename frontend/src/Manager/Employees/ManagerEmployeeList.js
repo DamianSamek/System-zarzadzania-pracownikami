@@ -40,10 +40,11 @@ class ManagerEmployeeList extends Component {
 
   async remove(id) {
     await fetch(`/api/employee/${id}`, {
-      method: 'DELETE',
+      method: 'PATCH',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem("token")
       }
     }).then(() => {
       let updatedEmployees = [...this.state.employees].filter(i => i.id !== id);

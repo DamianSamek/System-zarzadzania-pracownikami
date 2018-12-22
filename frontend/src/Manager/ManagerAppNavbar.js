@@ -27,7 +27,7 @@ class AppNavbar extends Component {
       <NavbarBrand tag={Link} to="/manager/employee">Pracownicy |</NavbarBrand>
       <NavbarBrand tag={Link} to="/manager/agreement">Umowy |</NavbarBrand>
       <NavbarBrand tag={Link} to="/manager/project">Projekty |</NavbarBrand>
-      <NavbarBrand tag={Link} to="/">Zapytania o podwyżkę |</NavbarBrand>
+      <NavbarBrand tag={Link} to="/manager/raiserequest">Zapytania o podwyżkę |</NavbarBrand>
       <NavbarBrand tag={Link} to="/">Dziennik przychodów |</NavbarBrand>
       <NavbarBrand tag={Link} to="/">Dziennik wydatków |</NavbarBrand>
       <NavbarBrand tag={Link} to="/" onClick={this.logout}>Wyloguj się</NavbarBrand>

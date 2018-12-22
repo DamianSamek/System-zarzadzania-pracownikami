@@ -13,9 +13,10 @@ class ManagerEmployeeEdit extends Component {
     phone: '',
     streetAddress: '',
     state: '',
-    city: '',
+    city: ''
 
   };
+
 
   constructor(props) {
     super(props);

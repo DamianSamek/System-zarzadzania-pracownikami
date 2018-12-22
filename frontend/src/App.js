@@ -10,9 +10,11 @@ import ManagerProjectsList from './Manager/Projects/ManagerProjectsList';
 import ManagerProjectEdit from './Manager/Projects/ManagerProjectEdit';
 import ManagerAgreementsList from './Manager/Agreements/ManagerAgreementsList';
 import ManagerAgreementEdit from './Manager/Agreements/ManagerAgreementEdit';
+import ManagereRaiseRequestsList from './Manager/RaiseRequests/ManagerRaiseRequestsList';
 import Login from './Components/Login';
 import EmployeeHome from './Employee/EmployeeHome';
 import EmployeeAgreementsList from './Employee/Agreements/EmployeeAgreementsList';
+import EmployeeAgreementRaiseRequest from './Employee/Agreements/EmployeeAgreementRaiseRequest';
 import EmployeeProjectsList from './Employee/Projects/EmployeeProjectsList';
 
 class App extends Component {
@@ -30,9 +32,12 @@ class App extends Component {
           <Route path='/manager/project/:id' exact={true} component={ManagerProjectEdit}/>
           <Route path='/manager/agreement' exact={true} component={ManagerAgreementsList}/>
           <Route path='/manager/agreement/:id' exact={true} component={ManagerAgreementEdit}/>
+          <Route path='/manager/raiserequest' exact={true} component = {ManagereRaiseRequestsList}/>
           <Route path='/employee' exact={true} component={EmployeeHome}/>
           <Route path='/employee/agreement' exact={true} component={EmployeeAgreementsList}/>
+          <Route path='/employee/agreement/:id' exact={true} component={EmployeeAgreementRaiseRequest} />
           <Route path='/employee/project' exact={true} component={EmployeeProjectsList}/>
+          
           
         </Switch>
       </Router>

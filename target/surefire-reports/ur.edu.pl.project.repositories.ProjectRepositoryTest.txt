@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ur.edu.pl.project.repositories.ProjectRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.119 s - in ur.edu.pl.project.repositories.ProjectRepositoryTest
