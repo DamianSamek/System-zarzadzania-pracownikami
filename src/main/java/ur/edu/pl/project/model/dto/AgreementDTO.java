@@ -14,17 +14,17 @@ public class AgreementDTO {
 
     private int id;
     private String number;
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
     private Date dateFrom;
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
     private Date dateTo;
-    private boolean active;
+    private int salary;
 
     public AgreementDTO(Agreement agreement) {
         this.id = agreement.getId();
         this.number = agreement.getNumber();
         this.dateFrom = agreement.getDateFrom();
         this.dateTo = agreement.getDateTo();
-        this.active = agreement.isActive();
+        this.salary = agreement.getSalary();
     }
 }

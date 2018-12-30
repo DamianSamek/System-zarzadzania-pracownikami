@@ -14,6 +14,6 @@ import java.util.List;
 @Projection(name="employeeAgreements", types= {Employee.class})
 public interface EmployeeWithAgreements {
 
-    @Value("#{@employeeService.getAgreements(target)}")
+    @Value("#{@employeeService.getAgreements()}")
     List<AgreementDTO> getAgreements();
 }

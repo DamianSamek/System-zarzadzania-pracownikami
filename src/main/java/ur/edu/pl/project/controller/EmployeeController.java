@@ -28,22 +28,13 @@ public class EmployeeController {
         return new ResponseEntity<>(employee, HttpStatus.CREATED);
     }
 
-    @RequestMapping(method = RequestMethod.PATCH, value = "/employee")
-    public ResponseEntity<?> modifyEmployee(@RequestBody Employee employee) throws UserCreateException {
+    @RequestMapping(method = RequestMethod.PATCH, value = "/employee/{id}")
+    public ResponseEntity<?> modifyEmployee(@PathVariable("id") int id, @RequestBody Employee employee) throws UserCreateException {
 
-        employeeService.modifyEmployee(employee);
+        employeeService.modifyEmployee(id, employee);
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.PATCH, value = "/employee/{id}")
-    public ResponseEntity<?> deleteEmployee(@PathVariable int id) throws ApiException {
-        employeeService.deleteEmployee(id);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
 
-//    @RequestMapping(method = RequestMethod.GET, value = "/employeeAgreement")
-//    public ResponseEntity<?> getAgreements() {
-//        return new ResponseEntity<>(employeeService.getAgreements(), HttpStatus.OK);
-//    }
 
 }

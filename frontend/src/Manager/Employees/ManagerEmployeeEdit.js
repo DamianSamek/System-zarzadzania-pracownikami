@@ -53,7 +53,7 @@ class ManagerEmployeeEdit extends Component {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch('/api/employee', {
+    await fetch( (item.id)? `/api/employee/${this.props.match.params.id}` : '/api/employee', {
       method: (item.id) ? 'PATCH' : 'POST',
       headers: {
         'Accept': 'application/json',

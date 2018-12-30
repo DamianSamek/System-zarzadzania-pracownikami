@@ -40,7 +40,7 @@ class ManagerEmployeeList extends Component {
 
   async remove(id) {
     await fetch(`/api/employee/${id}`, {
-      method: 'PATCH',
+      method: 'DELETE',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

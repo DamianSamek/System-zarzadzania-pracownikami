@@ -1,5 +1,6 @@
 package ur.edu.pl.project.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -10,7 +11,9 @@ import java.util.Date;
 public class AgreementWithEmployeeEmailDto {
 
     private String number;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dateFrom;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dateTo;
     private int salary;
     private String employeeEmail;

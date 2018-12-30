@@ -14,5 +14,6 @@ import ur.edu.pl.project.model.User;
 public interface AgreementRepository extends JpaRepository<Agreement, Integer> {
 
     Agreement findByNumber(@Param("number") String number);
+    Agreement findByEmployeeId(@Param("id") int id);
     List<Agreement> findAllByNumber(@Param("number") String number);
 }

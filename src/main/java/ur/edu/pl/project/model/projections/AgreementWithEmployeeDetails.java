@@ -17,7 +17,7 @@ public interface AgreementWithEmployeeDetails {
     Date getDateFrom();
     Date getDateTo();
     int getSalary();
-    boolean getActive();
+
 
     @Value("#{@agreementService.getAgreementEmployeeDto(target)}")
     AgreementEmployeeDto getUser();

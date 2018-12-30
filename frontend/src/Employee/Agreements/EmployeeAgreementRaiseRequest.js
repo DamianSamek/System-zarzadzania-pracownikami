@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Button, Container, Form, FormGroup, Input, Label,ButtonDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'reactstrap';
+import { Button, Container, Form, FormGroup, Input, Col, Row, Label,ButtonDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'reactstrap';
 import EmployeeAppNavbar from '../EmployeeAppNavbar';
 import axios from 'axios';
 
@@ -50,7 +50,7 @@ class EmployeeAgreementRaiseRequest extends Component {
       },
       body: JSON.stringify(item),
     });
-    this.props.history.push('/employee/agreement');
+    this.props.history.push('/employee');
   }
 
   render() {
@@ -59,9 +59,11 @@ class EmployeeAgreementRaiseRequest extends Component {
     const {item} = this.state;
     const title = <h2>{'Prośba o podwyżkę'}</h2>;
 
-    return <div>
-      <EmployeeAppNavbar/>
+    return(
+
+
       <Container>
+        <Row><Col sm={{size: 6, offset: 3}}>
         {title}
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
@@ -72,12 +74,13 @@ class EmployeeAgreementRaiseRequest extends Component {
 
           <FormGroup>
             <Button color="primary" type="submit">Poproś</Button>
-            <Button color="secondary" tag={Link} to="/employee/agreement">Anuluj</Button>
+            <Button color="secondary" tag={Link} to="/employee/">Anuluj</Button>
           </FormGroup>
         </Form>
-        
+        </Col></Row>
       </Container>
-    </div>
+
+      )
   }else return <div>BRAK DOSTĘPU</div>
 }
 }

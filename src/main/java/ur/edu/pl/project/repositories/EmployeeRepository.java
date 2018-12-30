@@ -14,6 +14,7 @@ import ur.edu.pl.project.model.User;
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     Employee findByUserEmail(@Param("email") String email);
+    Employee findByUserId(@Param("id") int id);
 
 
 }

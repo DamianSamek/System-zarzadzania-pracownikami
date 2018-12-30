@@ -58,6 +58,7 @@ public class EmployeeService {
                 newUser.setTokenValid(true);
 
                 employee.setUser(newUser);
+                employee.setProjects(new ArrayList<>());
                 //sendEmail("createCustomer", customer);
             }
         } else {
@@ -66,17 +67,17 @@ public class EmployeeService {
         }
     }
 
-    public void modifyEmployee(Employee employee) throws UserCreateException {
+    public void modifyEmployee(int id, Employee employee) throws UserCreateException {
 
-        Employee existingEmployee = findEmployeeById(employee);
+        Employee existingEmployee = findEmployeeById(id);
         setFieldsForEmployee(employee, existingEmployee);
 
 
         employeeRepository.save(existingEmployee);
     }
 
-    private Employee findEmployeeById(Employee employee) throws UserCreateException {
-        Employee existingEmployee = employeeRepository.findById(employee.getId())
+    private Employee findEmployeeById(int id) throws UserCreateException {
+        Employee existingEmployee = employeeRepository.findById(id)
                 .orElseThrow(() -> new UserCreateException(ErrorResponseCodes.User.USER_CREATE_ERROR,
                         HttpStatus.BAD_REQUEST, "Pracownik nie istnieje."));
         return existingEmployee;
@@ -118,12 +119,5 @@ public class EmployeeService {
         else throw new ApiException("401",HttpStatus.BAD_REQUEST,"Nie znaleziono pracownika");
     }
 
-//    public List<AgreementDTO> getAgreements(){
-//        Employee employee = employeeRepository.findByUserEmail(authService.currentUser().getEmail());
-//        ArrayList<AgreementDTO> agreementsDTO = new ArrayList<>();
-//        if (employee.getAgreements() != null) {
-//            employee.getAgreements().stream().forEach(a -> agreementsDTO.add(new AgreementDTO(a)));
-//        }
-//        return agreementsDTO;
-//    }
+
 }

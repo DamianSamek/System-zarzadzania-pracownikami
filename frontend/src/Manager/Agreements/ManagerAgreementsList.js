@@ -40,15 +40,15 @@ class ManagerAgreementsList extends Component {
 
   async remove(id) {
     await fetch(`/api/agreement/${id}`, {
-      method: 'PATCH',
+      method: 'DELETE',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem("token")
       }})
       .then(() => {
-        let updatedEmployees = [...this.state.employees];
-        this.setState({employees: updatedEmployees});
+        let updatedAgreements = [...this.state.agreements].filter(i => i.id !== id);;
+        this.setState({agreements: updatedAgreements});
       });
     
   }
@@ -66,10 +66,9 @@ class ManagerAgreementsList extends Component {
       return <tr key={agreement.id}>
         <td style={{whiteSpace: 'nowrap'}}>{agreement.number}</td>
         <td>{agreement.user.firstName} {agreement.user.secondName}</td>
-        <td>{agreement.dateFrom}</td>
-        <td>{agreement.dateTo}</td>        
+        <td>{agreement.dateFrom.toString().slice(0,10)}</td>
+        <td>{agreement.dateTo.toString().slice(0,10)}</td>
         <td>{agreement.salary}</td>
-        <td>{agreement.active.toString()}</td>
         
         <td>
           <ButtonGroup>
@@ -97,7 +96,6 @@ class ManagerAgreementsList extends Component {
               <th>Data zakończenia</th>
               
               <th>Płaca</th>
-              <th width="10%">Aktywna</th>
               <th>Akcja</th>
             </tr>
             </thead>

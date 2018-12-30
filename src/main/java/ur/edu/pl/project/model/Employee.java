@@ -1,7 +1,6 @@
 package ur.edu.pl.project.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import lombok.Data;
 
@@ -12,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;
+
 
 @Entity
 @Table(name="employee")
@@ -53,14 +53,27 @@ public class Employee {
     @Size(max = 65)
     private String email;
 
+    @OneToOne(mappedBy = "employee")
+    private Agreement agreement;
 
-//    List<Project> projects;
 
-    @Transient
-    @OneToMany(mappedBy = "employee")
-    List<Agreement> agreements;
+
+
+
+    @ManyToMany(mappedBy="employees", cascade = {CascadeType.ALL})
+    List<Project> projects;
 
     @Transient
     @OneToMany(mappedBy = "employee")
     List<RaiseRequest> raiseRequests;
+
+    public void removeProject(Project project) {
+        projects.remove(project);
+        project.getEmployees().remove(this);
+    }
+
+    public void addProject(Project project) {
+        projects.add(project);
+        project.getEmployees().add(this);
+    }
 }

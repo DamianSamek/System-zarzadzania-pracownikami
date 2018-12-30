@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label,ButtonDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'reactstrap';
 import ManagerAppNavbar from '../ManagerAppNavbar';
 import axios from 'axios';
+import Select from "react-select";
+import makeAnimated from "react-select/lib/animated";
 
 class ManagerAgreementEdit extends Component {
 
@@ -20,6 +22,7 @@ class ManagerAgreementEdit extends Component {
       dropdownOpen: false,
       options: [],
       dropdownValue: "",
+      selectedOption: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -70,6 +73,7 @@ class ManagerAgreementEdit extends Component {
   async handleSubmit(event) {
     event.preventDefault();
     const {item} = this.state;
+    item.employeeEmail = this.state.selectedOption;
 
     await fetch((item.id)? `/api/agreement/${this.props.match.params.id}` : '/api/agreement/', {
       method: (item.id) ? 'PATCH' : 'POST',
@@ -83,11 +87,21 @@ class ManagerAgreementEdit extends Component {
     this.props.history.push('/manager/agreement');
   }
 
+  onChangeSelect = (selectedOption) => {
+    this.setState({ selectedOption: selectedOption.value});
+  }
+
   render() {
     if(localStorage.getItem("loggedUserRole")==="ROLE_MANAGER")
     {
     const {item} = this.state;
     const title = <h2>{item.id ? 'Edycja umowy'  : 'Dodawanie umowy'}</h2>;
+      const employees = this.state.options.map(option => {
+          if(option.agreement===null) {
+             return {value: option.email, label:option.firstName+" "+ option.secondName}
+          }
+      }
+      ).filter(notUndefined => notUndefined);
 
     return <div>
       <ManagerAppNavbar/>
@@ -138,14 +152,11 @@ class ManagerAgreementEdit extends Component {
                    </FormGroup>
           <FormGroup> </FormGroup>
           <FormGroup>
-          <ButtonDropdown onClick={this.handleChange}  isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <DropdownToggle caret>
-          E-mail pracownika
-          </DropdownToggle>
-          <DropdownMenu>
-            {this.state.options.map((option) => <DropdownItem name="employeeEmail" value={option.email} >{option.email}</DropdownItem>)}
-          </DropdownMenu>
-          </ButtonDropdown>
+
+            <FormGroup>
+              <Label for="email">Pracownik</Label>
+              <Select components={makeAnimated()} onChange={this.onChangeSelect} options={employees}  />
+            </FormGroup>
           </FormGroup>
           <FormGroup>
             <Button color="primary" type="submit">Zapisz</Button>{' '}

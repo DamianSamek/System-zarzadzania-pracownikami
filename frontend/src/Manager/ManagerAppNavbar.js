@@ -22,14 +22,12 @@ class AppNavbar extends Component {
 
   render() {
     return <Navbar color="dark" dark expand="md">
-      <NavbarBrand tag={Link} to="/manager">Home | </NavbarBrand>
-      {/* <NavbarBrand tag={Link} to="/manager/user">Użytkownicy |</NavbarBrand> */}
       <NavbarBrand tag={Link} to="/manager/employee">Pracownicy |</NavbarBrand>
       <NavbarBrand tag={Link} to="/manager/agreement">Umowy |</NavbarBrand>
       <NavbarBrand tag={Link} to="/manager/project">Projekty |</NavbarBrand>
       <NavbarBrand tag={Link} to="/manager/raiserequest">Zapytania o podwyżkę |</NavbarBrand>
-      <NavbarBrand tag={Link} to="/">Dziennik przychodów |</NavbarBrand>
-      <NavbarBrand tag={Link} to="/">Dziennik wydatków |</NavbarBrand>
+      <NavbarBrand tag={Link} to="/manager/incomes">Dziennik przychodów |</NavbarBrand>
+      <NavbarBrand tag={Link} to="/manager/expenses">Dziennik wydatków |</NavbarBrand>
       <NavbarBrand tag={Link} to="/" onClick={this.logout}>Wyloguj się</NavbarBrand>
     </Navbar>;
   }

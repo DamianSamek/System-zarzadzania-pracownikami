@@ -24,13 +24,15 @@ public class Agreement {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
+
+    @NotNull
     @Size(max=45)
     private String number;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dateFrom;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dateTo;
 
     @CreationTimestamp
@@ -38,21 +40,16 @@ public class Agreement {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateOfCreation;
 
-
-    @ManyToOne
+    @NotNull
+    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinColumn(name="id_employee")
     public Employee employee;
 
+    @NotNull
     private int salary;
-
-    private boolean active;
 
     @Transient
     @OneToMany(mappedBy="agreement")
     List<RaiseRequest> raiseRequests;
-
-
-
-//    List<Project> projects;
 
 }

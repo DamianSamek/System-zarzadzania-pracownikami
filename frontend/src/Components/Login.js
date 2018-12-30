@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import {PostData} from '../Services/PostData';
 import {
-  Container, Col, Form,
+  Container, Col, Row, Form,
   FormGroup, Label, Input,
   Button, FormText, FormFeedback,
 } from 'reactstrap';
@@ -33,7 +33,8 @@ class Login extends Component {
        if(responseJson.tokenValid){
                 
          this.setState({userRole: responseJson.role.role});
-         localStorage.setItem("loggedUserRole",this.state.userRole);  
+         localStorage.setItem("loggedUserRole",this.state.userRole);
+         localStorage.setItem("loggedUserId",responseJson.id);
          this.setState({redirectToReferrer: true});
        }
        
@@ -53,7 +54,7 @@ class Login extends Component {
       
       if (this.state.redirectToReferrer) {
         if((this.state.userRole)==="ROLE_MANAGER"){
-          return (<Redirect to={'/manager'}/>)
+          return (<Redirect to={'/manager/employee'}/>)
         }
         else if((this.state.userRole)==="ROLE_EMPLOYEE"){
           return(<Redirect to={'/employee'}/>)
@@ -75,7 +76,7 @@ class Login extends Component {
       //   </div>
       // </div>
 
-
+         <Row><Col sm={{size: 4, offset: 4}}>
   <Container className="App">
     <h2>Zaloguj się</h2>
     <Form className="form" onSubmit={(e) => this.login(e) }>
@@ -113,7 +114,7 @@ class Login extends Component {
       <Button>Zaloguj</Button>
   </Form>
 </Container>
-    );
+         </Col></Row>);
   }
 }
 

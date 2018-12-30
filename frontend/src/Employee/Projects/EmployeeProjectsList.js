@@ -15,14 +15,14 @@ class EmployeeProjectsList extends Component {
     this.setState({isLoading: true});
 
 
-    axios.get('/api/project',{
+    axios.get(`/api/project/${localStorage.getItem("loggedUserId")}`,{
       headers: {
         Authorization: localStorage.getItem("token")
       }
     })
   .then(
     response => {
-        const data = response.data._embedded.project;
+        const data = response.data;
         this.setState({projects: data, isLoading:false});
             
     }    

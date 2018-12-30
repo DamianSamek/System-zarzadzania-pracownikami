@@ -2,6 +2,7 @@ package ur.edu.pl.project.model.projections;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.rest.core.config.Projection;
+import ur.edu.pl.project.model.Agreement;
 import ur.edu.pl.project.model.Employee;
 import ur.edu.pl.project.model.dto.EmployeeUserDto;
 
@@ -20,5 +21,7 @@ public interface EmployeeWithUserDetails {
 
     @Value("#{@employeeService.getEmployeeUserDto(target).getEmail()}")
     String getEmail();
+
+    Agreement getAgreement();
 
 }

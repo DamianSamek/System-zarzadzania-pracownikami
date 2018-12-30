@@ -63,7 +63,7 @@ public class RaiseRequestService {
         Agreement agreementFromRequest = raiseRequest.getAgreement();
         return new AgreementDTO(agreementFromRequest.getId(),
                 agreementFromRequest.getNumber(), agreementFromRequest.getDateFrom(),
-                agreementFromRequest.getDateTo(), agreementFromRequest.isActive());
+                agreementFromRequest.getDateTo(), agreementFromRequest.getSalary());
     }
 
     public void considerRaiseRequest(int id, RaiseRequest raiseRequestFromJSON) throws ApiException{
