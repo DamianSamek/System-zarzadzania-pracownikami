@@ -157,7 +157,6 @@ class EmployeeHome extends Component {
                             <p className="lead">Data zakończenia: {this.state.agreement.dateTo}</p>
 
                             <p className="lead"> Płaca: {this.state.agreement.salary}</p>
-                            <p className="lead">Aktywna: {this.state.agreement.active}</p>
 
                         <ButtonGroup>
                             <Button size="sm" color="primary" tag={Link} to={"/employee/agreement/" + this.state.agreement.id}>Poproś o podwyżkę</Button>

@@ -128,9 +128,10 @@ class ManagerProjectEdit extends Component {
                    onChange={this.handleChange} autoComplete="address-level1"/>
           </FormGroup>
           <FormGroup>
-            <Label for="email">Zakończony</Label>
+
             <Input type="checkbox" checked={this.state.checked} name="finished" id="finished" value={item.finished || ''}
                    onChange={this.toggleCheckbox} autoComplete="address-level1"/>
+            <Label>Zakończony</Label>
           </FormGroup>
           <FormGroup>
           <Label for="email">Pracownicy biorący udział</Label>

@@ -2,28 +2,88 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60197080-6c18-4c88-978a-568bd60b685f" name="Default Changelist" comment="changes">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/41a76237-e28c-4b8e-b3b3-b430b63da232.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/frontend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Manager/ExpensesJournal/ExpensesJournal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Manager/IncomesJournal/IncomesJournal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/ProjectController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/EmployeeDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/ProjectDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/ProjectService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0__InitMigration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.1__AddRolesAndDefaultUsers.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/db/migration/V1.0__InitMigration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/db/migration/V1.1__AddRolesAndDefaultUsers.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/controller/ProjectController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/dto/EmployeeDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/dto/ProjectDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/services/EmailService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/services/ProjectService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Employee/Agreements/EmployeeAgreementRaiseRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Employee/Agreements/EmployeeAgreementRaiseRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Employee/Agreements/EmployeeAgreementsList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Employee/EmployeeHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Employee/EmployeeHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Employee/Projects/EmployeeProjectsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Employee/Projects/EmployeeProjectsList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Manager/Agreements/ManagerAgreementEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Manager/Agreements/ManagerAgreementEdit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Manager/Agreements/ManagerAgreementsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Manager/Agreements/ManagerAgreementsList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Manager/Employees/ManagerEmployeeEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Manager/Employees/ManagerEmployeeEdit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Manager/Employees/ManagerEmployeeList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Manager/Employees/ManagerEmployeeList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Manager/ManagerAppNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Manager/ManagerAppNavbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Manager/ManagerHome.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Manager/Projects/ManagerProjectEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Manager/Projects/ManagerProjectEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/AgreementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/AgreementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Agreement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Agreement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/RaiseRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/RaiseRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Project.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/RaiseRequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/RaiseRequestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementWithEmployeeEmailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementWithEmployeeEmailDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/ChangePasswordDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/AgreementWithEmployeeDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/AgreementWithEmployeeDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/EmployeeWithAgreements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/EmployeeWithAgreements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/EmployeeWithUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/EmployeeWithUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/AgreementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/AgreementRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/EmployeeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/AgreementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/AgreementService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/RaiseRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/RaiseRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/controller/AgreementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/controller/AgreementController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/controller/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/Agreement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/Agreement.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/RaiseRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/RaiseRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/Project.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/dto/AgreementDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/dto/AgreementDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/dto/AgreementWithEmployeeEmailDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/dto/AgreementWithEmployeeEmailDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/dto/ChangePasswordDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/projections/AgreementWithEmployeeDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/projections/AgreementWithEmployeeDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/projections/EmployeeWithAgreements.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/projections/EmployeeWithAgreements.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/projections/EmployeeWithUserDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/model/projections/EmployeeWithUserDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/repositories/AgreementRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/repositories/AgreementRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/repositories/EmployeeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/repositories/EmployeeRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/services/AgreementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/services/AgreementService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/services/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/services/EmployeeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/services/RaiseRequestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/services/RaiseRequestService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ur/edu/pl/project/services/UserService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,13 +93,96 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/AgreementService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="86" column="61" selection-start-line="86" selection-start-column="61" selection-end-line="86" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/ProjectController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-98">
+              <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/ProjectService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="114" selection-start-line="114" selection-end-line="114" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="115" column="21" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V1.0__InitMigration.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/RaiseRequestService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V1.1__AddRolesAndDefaultUsers.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="75" column="55" lean-forward="true" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
+            <state relative-caret-position="315">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/ProjectDTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,25 +191,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/RaiseRequestController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/AgreementWithEmployeeDetails.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/RaiseRequest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -74,80 +202,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Agreement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="49" column="14" lean-forward="true" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Employee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="62" column="14" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/RaiseRequestRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/ProjectRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/RoleRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/UserRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/RaiseRequestWithAgreementAndEmployee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+            <state relative-caret-position="465">
+              <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -169,6 +225,7 @@
     <findStrings>
       <find>securit</find>
       <find>hal</find>
+      <find>damian</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,15 +234,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/CustomerController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/config/RepositoriesConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/EmployeeUserDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/AgreementWithEmployeeDetails.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/ManagerRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/JwtAuthenticationEntryPoint.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/JwtAuthenticationFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/JwtLoginFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/TokenProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/WebSecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/JWTAuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/EncryptionService.java" />
@@ -193,41 +241,50 @@
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/ChangePasswordDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/UserRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/EmailService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/AuthService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/enums/Roles.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/JWTLoginFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/RestApiSecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/config/WebConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/EmployeeWithUserDetails.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Project.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Manager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/AgreementRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementEmployeeDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementWithEmployeeEmailDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/EmployeeWithAgreements.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/EmployeeRepository.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/ur/edu/pl/project/services/UserServiceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ur/edu/pl/project/security/TokenAuthenticationServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/ProjectRepository.java" />
         <option value="$PROJECT_DIR$/src/test/java/ur/edu/pl/project/repositories/ProjectRepositoryTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ur/edu/pl/project/repositories/RoleRepositoryTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/AgreementService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/AgreementController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/EmployeeService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/EmployeeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/RaiseRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/RaiseRequestDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/RaiseRequestWithAgreementAndEmployee.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/RaiseRequestController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Employee.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Agreement.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/RaiseRequestRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Project.java" />
+        <option value="$PROJECT_DIR$/frontend/src/Manager/Projects/ManagerProjectEdit.js" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/EmployeeWithAgreements.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/EmployeeRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementWithEmployeeEmailDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/EmailService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/EmployeeDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/EmployeeService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/AgreementRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Agreement.java" />
         <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/RaiseRequestService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/EmployeeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/AgreementWithEmployeeDetails.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Employee.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/AgreementController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/AgreementService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/EmployeeWithUserDetails.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/ProjectController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/ProjectService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/ProjectDTO.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/db/migration/V1.0__InitMigration.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/db/migration/V1.1__AddRolesAndDefaultUsers.sql" />
       </list>
     </option>
   </component>
@@ -264,7 +321,49 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="project" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="project" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="project" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="project" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="project" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Employee" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="project" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Manager" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -358,16 +457,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="enums" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
               <item name="projections" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -417,31 +506,9 @@
               <item name="project" type="b2602c69:ProjectViewProjectNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="repositories" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="migration" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="project" type="b2602c69:ProjectViewProjectNode" />
@@ -456,21 +523,22 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545494764629" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546208464171" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="XML" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -511,8 +579,9 @@
         </RuleState>
       </list>
     </option>
+    <option name="contentProportion" value="0.12285012" />
   </component>
-  <component name="RunManager" selected="Application.ProjectApplication">
+  <component name="RunManager" selected="Spring Boot.ProjectApplication">
     <configuration name="ProjectApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ur.edu.pl.project.ProjectApplication" />
       <module name="project" />
@@ -576,6 +645,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="project" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ur.edu.pl.project.ProjectApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="docker-compose.yml.db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -592,17 +668,14 @@
     <list>
       <item itemvalue="Application.ProjectApplication" />
       <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
-      <item itemvalue="JUnit.UserServiceTest" />
       <item itemvalue="JUnit.ProjectRepositoryTest" />
       <item itemvalue="JUnit.RoleRepositoryTest" />
+      <item itemvalue="JUnit.UserServiceTest" />
       <item itemvalue="Spring Boot.Project" />
+      <item itemvalue="Spring Boot.ProjectApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ProjectApplication" />
-        <item itemvalue="JUnit.RoleRepositoryTest" />
-        <item itemvalue="JUnit.ProjectRepositoryTest" />
-        <item itemvalue="JUnit.UserServiceTest" />
         <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -640,6 +713,13 @@
       <workItem from="1545297835056" duration="853000" />
       <workItem from="1545401584598" duration="11592000" />
       <workItem from="1545474563763" duration="13505000" />
+      <workItem from="1545511810858" duration="11847000" />
+      <workItem from="1545558890842" duration="7608000" />
+      <workItem from="1545567760966" duration="17975000" />
+      <workItem from="1545605239072" duration="5561000" />
+      <workItem from="1545935134193" duration="207000" />
+      <workItem from="1546161333271" duration="12625000" />
+      <workItem from="1546186707169" duration="8705000" />
     </task>
     <task id="LOCAL-00001" summary="changes">
       <created>1545247192115</created>
@@ -740,13 +820,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136613000" />
+    <option name="totallyTimeSpent" value="200914000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1664" y="-11" width="1297" height="780" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3835068" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3578863" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -756,8 +836,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" x="1688" y="278" width="1249" height="208" id="Run" order="2" sideWeight="0.4452653" visible="true" weight="0.32248062" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3984496" />
+      <window_info anchor="bottom" x="1688" y="278" width="1249" height="208" id="Run" order="2" sideWeight="0.4452653" weight="0.3217503" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.33075932" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -767,16 +847,16 @@
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49960223" weight="0.3255814" />
-      <window_info anchor="bottom" id="Run Dashboard" order="14" weight="0.32904884" />
-      <window_info anchor="bottom" id="Docker" order="15" sideWeight="0.49899262" weight="0.32947233" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49960223" weight="0.32248062" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="14" visible="true" weight="0.32868218" />
+      <window_info anchor="bottom" id="Docker" order="15" sideWeight="0.49899262" weight="0.32868218" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.35433942" />
-      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32975152" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
@@ -791,297 +871,82 @@
     <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/Components/Login.js">
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="305">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.3.RELEASE/spring-web-5.1.3.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.3.RELEASE/spring-webmvc-5.1.3.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.1.3.RELEASE/spring-aop-5.1.3.RELEASE.jar!/org/springframework/aop/framework/CglibAopProxy.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.3.RELEASE/spring-core-5.1.3.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.3.RELEASE/spring-webmvc-5.1.3.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.3.RELEASE/spring-webmvc-5.1.3.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.3.RELEASE/spring-webmvc-5.1.3.RELEASE.jar!/org/springframework/web/servlet/mvc/method/AbstractHandlerMethodAdapter.class" />
+    <entry file="file://$PROJECT_DIR$/frontend/src/Manager/Projects/ManagerProjectEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="123" column="12" lean-forward="true" selection-start-line="123" selection-start-column="12" selection-end-line="123" selection-end-column="49" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/frontend/src/Employee/EmployeeAppNavbar.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/util/function/Consumer.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="102" column="25" lean-forward="true" selection-start-line="102" selection-start-column="25" selection-end-line="102" selection-end-column="25" />
+        <state relative-caret-position="120">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.3.RELEASE/spring-web-5.1.3.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="41" column="45" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ur/edu/pl/project/services/UserServiceTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Manager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/UserCredentials.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ur/edu/pl/project/security/TokenAuthenticationServiceTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/TokenAuthenticationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ur/edu/pl/project/repositories/RoleRepositoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="63" column="41" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ur/edu/pl/project/repositories/ProjectRepositoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="68" column="47" selection-start-line="68" selection-start-column="47" selection-end-line="68" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="225">
+          <caret line="36" column="81" selection-start-line="36" selection-start-column="81" selection-end-line="36" selection-end-column="81" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+        <state relative-caret-position="210">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/RestApiSecurityConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/RaiseRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/JWTLoginFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="58" column="47" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/security/JWTAuthenticationFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/exceptions/AgreementApiException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/EmployeeWithUserDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/AuthService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/utils/StringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/config/WebConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/config/RepositoriesConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="22" column="71" lean-forward="true" selection-start-line="22" selection-start-column="71" selection-end-line="22" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/EmployeeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="39" column="19" lean-forward="true" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/EncryptionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/AgreementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="31" column="4" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/AgreementService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="63" column="48" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementEmployeeDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/EmployeeUserDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="11" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/ChangePasswordDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementWithEmployeeEmailDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/EmployeeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1420">
-          <caret line="108" column="45" selection-start-line="108" selection-start-column="45" selection-end-line="108" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/RaiseRequestDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1090,35 +955,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Role.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/AgreementRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        <state relative-caret-position="120">
+          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/EmployeeRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        <state relative-caret-position="120">
+          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1129,110 +988,226 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/RoleRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/AuthService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state relative-caret-position="-23">
+          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/EmailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/UserRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/EmployeeService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
+        <state relative-caret-position="-299">
+          <caret line="82" column="32" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/RaiseRequestWithAgreementAndEmployee.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/EncryptionService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.3.RELEASE/spring-web-5.1.3.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="96" column="13" lean-forward="true" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/RaiseRequestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/RaiseRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/RaiseRequestRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/repositories/ProjectRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="62" column="14" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Agreement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="49" column="14" lean-forward="true" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/RaiseRequestService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="75" column="55" lean-forward="true" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
+        <state relative-caret-position="22">
+          <caret line="65" column="48" lean-forward="true" selection-start-line="65" selection-start-column="48" selection-end-line="65" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/ChangePasswordDTO.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/RaiseRequestWithAgreementAndEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/RaiseRequestDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/EmployeeUserDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementWithEmployeeEmailDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/AgreementEmployeeDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/EmployeeDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/EmployeeWithAgreements.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/AgreementController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="47" column="49" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="56" column="32" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/AgreementWithEmployeeDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/Agreement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/projections/EmployeeWithUserDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/EmployeeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/AgreementService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="86" column="61" selection-start-line="86" selection-start-column="61" selection-end-line="86" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/model/dto/ProjectDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/controller/ProjectController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-98">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ur/edu/pl/project/services/ProjectService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="115" column="21" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/41a76237-e28c-4b8e-b3b3-b430b63da232/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V1.0__InitMigration.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V1.1__AddRolesAndDefaultUsers.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
