@@ -36,17 +36,16 @@ CREATE TABLE `employee` (
 
 CREATE TABLE `agreement` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `number` varchar(45) DEFAULT NULL,
   `date_from` datetime DEFAULT NULL,
   `date_to` datetime DEFAULT NULL,
   `date_of_creation` datetime DEFAULT NULL,
   `id_employee` int(11) NOT NULL,
   `salary` int(11) NOT NULL,
+  `active` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_employee_UNIQUE` (`id_employee`),
-  UNIQUE KEY `number_UNIQUE` (`number`),
   KEY `fk_agreement_1_idx` (`id_employee`),
-  CONSTRAINT `fk_agreement_1` FOREIGN KEY (`id_employee`) REFERENCES `employee` (`id`) ON DELETE CASCADE
+  CONSTRAINT `fk_agreement_1` FOREIGN KEY (`id_employee`) REFERENCES `employee` (`id`)
 );
 
 CREATE TABLE `project` (
@@ -65,8 +64,8 @@ CREATE TABLE `employee_project` (
   PRIMARY KEY (`id`),
   KEY `fk_employee_project_1_idx` (`id_employee`),
   KEY `fk_employee_project_2_idx` (`id_project`),
-  CONSTRAINT `fk_employee_project_1` FOREIGN KEY (`id_employee`) REFERENCES `employee` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `fk_employee_project_2` FOREIGN KEY (`id_project`) REFERENCES `project` (`id`) ON DELETE CASCADE
+  CONSTRAINT `fk_employee_project_1` FOREIGN KEY (`id_employee`) REFERENCES `employee` (`id`),
+  CONSTRAINT `fk_employee_project_2` FOREIGN KEY (`id_project`) REFERENCES `project` (`id`)
 );
 
 CREATE TABLE `raise_request` (

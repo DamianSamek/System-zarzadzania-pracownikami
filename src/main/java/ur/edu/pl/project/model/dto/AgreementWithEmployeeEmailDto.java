@@ -10,7 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class AgreementWithEmployeeEmailDto {
 
-    private String number;
+    private int id;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dateFrom;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")

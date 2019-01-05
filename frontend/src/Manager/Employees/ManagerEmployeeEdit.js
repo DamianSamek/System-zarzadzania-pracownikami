@@ -80,31 +80,31 @@ class ManagerEmployeeEdit extends Component {
         {item.id ? <Form onSubmit={this.handleSubmit}>
           <FormGroup>
             <Label for="firstName">Imię</Label>
-            <Input type="text" name="firstName" id="firstName" value={item.firstName || ''}
+            <Input required type="text" name="firstName" id="firstName" value={item.firstName || ''}
                    onChange={this.handleChange} autoComplete="name"/>
           </FormGroup>
           <FormGroup>
             <Label for="secondName">Nazwisko</Label>
-            <Input type="text" name="secondName" id="secondName" value={item.secondName || ''}
+            <Input required type="text" name="secondName" id="secondName" value={item.secondName || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
           </FormGroup>
           <FormGroup>
             <Label for="email">E-mail</Label>
-            <Input type="text" name="email" id="email" value={item.email || ''}
+            <Input required type="email" name="email" id="email" value={item.email || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
                    </FormGroup>
           <FormGroup>
 
             </FormGroup>
             <Label for="phone">Telefon</Label>
-            <Input type="text" name="phone" id="phone" value={item.phone || ''}
+            <Input required pattern="\d{9}" title="9-cyfrowy numer telefonu"type="text" name="phone" id="phone" value={item.phone || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
                 
           <FormGroup>
 
             </FormGroup>
             <Label for="phone">Stanowisko</Label>
-            <Input type="text" name="position" id="position" value={item.position || ''}
+            <Input required type="text" name="position" id="position" value={item.position || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
                 
           <FormGroup>
@@ -116,53 +116,53 @@ class ManagerEmployeeEdit extends Component {
       <Form onSubmit={this.handleSubmit}>
       <FormGroup>
         <Label for="firstName">Imię</Label>
-        <Input type="text" name="firstName" id="firstName" value={item.firstName || ''}
+        <Input required type="text" name="firstName" id="firstName" value={item.firstName || ''}
                onChange={this.handleChange} autoComplete="name"/>
       </FormGroup>
       <FormGroup>
         <Label for="secondName">Nazwisko</Label>
-        <Input type="text" name="secondName" id="secondName" value={item.secondName || ''}
+        <Input required type="text" name="secondName" id="secondName" value={item.secondName || ''}
                onChange={this.handleChange} autoComplete="address-level1"/>
       </FormGroup>
       <FormGroup>
       </FormGroup>
         <Label for="email">E-mail</Label>
-        <Input type="text" name="email" id="email" value={item.email || ''}
+        <Input required type="email" name="email" id="email" value={item.email || ''}
                onChange={this.handleChange} autoComplete="address-level1"/>
                
       <FormGroup>           
         </FormGroup>
         <Label for="phone">Telefon</Label>
-        <Input type="text" name="phone" id="phone" value={item.phone || ''}
+        <Input required pattern="\d{9}" title="9-cyfrowy numer telefonu" type="text" name="phone" id="phone" value={item.phone || ''}
                onChange={this.handleChange} autoComplete="address-level1"/>
       <FormGroup>
         </FormGroup>
         <Label for="phone">Stanowisko</Label>
-        <Input type="text" name="position" id="position" value={item.position || ''}
+        <Input required type="text" name="position" id="position" value={item.position || ''}
                onChange={this.handleChange} autoComplete="address-level1"/>
 
        <FormGroup>
         </FormGroup>
         <Label for="phone">Ulica</Label>
-        <Input type="text" name="streetAddress" id="streetAddress" value={item.streetAddress || ''}
+        <Input required type="text" name="streetAddress" id="streetAddress" value={item.streetAddress || ''}
                onChange={this.handleChange} autoComplete="address-level1"/>         
             
             <FormGroup>
         </FormGroup>
         <Label for="phone">Miejscowość</Label>
-        <Input type="text" name="city" id="city" value={item.city || ''}
+        <Input required type="text" name="city" id="city" value={item.city || ''}
                onChange={this.handleChange} autoComplete="address-level1"/>
 
          <FormGroup>
         </FormGroup>
         <Label for="phone">Kod pocztowy</Label>
-        <Input type="text" name="postalCode" id="postalCode" value={item.postalCode || ''}
+        <Input required pattern="\d{2}-\d{3}" title="Wymagany format: 00-000" type="text" name="postalCode" id="postalCode" value={item.postalCode || ''}
                onChange={this.handleChange} autoComplete="address-level1"/>
 
                  <FormGroup>
         </FormGroup>
         <Label for="phone">Województwo</Label>
-        <Input type="text" name="state" id="state" value={item.state || ''}
+        <Input required type="text" name="state" id="state" value={item.state || ''}
                onChange={this.handleChange} autoComplete="address-level1"/>
       <FormGroup>
         <Button color="primary" type="submit">Zapisz</Button>{' '}

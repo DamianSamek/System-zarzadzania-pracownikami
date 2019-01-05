@@ -10,6 +10,8 @@ public interface RaiseRequestWithAgreementAndEmployee {
 
     int getId();
     int getSalaryRequest();
+    boolean isConsidered();
+    boolean isAccepted();
 
     @Value("#{@employeeService.getEmployeeUserDto(target.getEmployee()).getFirstName()}")
     String getFirstName();
@@ -20,8 +22,8 @@ public interface RaiseRequestWithAgreementAndEmployee {
     @Value("#{@raiseRequestService.getRaiseRequestAgreementDto(target).getId()}")
     int getAgreementId();
 
-    @Value("#{@raiseRequestService.getRaiseRequestAgreementDto(target).getNumber()}")
-    String getNumber();
+    @Value("#{@raiseRequestService.getRaiseRequestAgreementDto(target).isActive()}")
+    boolean isActive();
 
 
 

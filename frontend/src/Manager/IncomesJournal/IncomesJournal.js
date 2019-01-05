@@ -87,7 +87,7 @@ class IncomesJournal extends Component {
                     <Row><Col sm={{size: 8, offset: 2}}>
                     <Container fluid>
                         <h3>Dziennik przychodów</h3>
-                        <Table className="mt-4">
+                        <Table className="mt-4 table table-hover">
                             <thead>
                             <tr>
                                 <th width="20%">Klient</th>

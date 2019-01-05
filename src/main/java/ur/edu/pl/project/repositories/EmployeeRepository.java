@@ -10,6 +10,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import ur.edu.pl.project.model.Employee;
 import ur.edu.pl.project.model.User;
 
+
 @RepositoryRestResource(collectionResourceRel = "employee", path = "employee")
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 

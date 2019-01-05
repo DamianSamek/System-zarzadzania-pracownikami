@@ -3,6 +3,7 @@ package ur.edu.pl.project.model;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import lombok.Data;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -16,6 +17,7 @@ import java.util.List;
 @Entity
 @Table(name="employee")
 @Data
+@Where(clause="enabled=1")
 public class Employee {
 
     @Id

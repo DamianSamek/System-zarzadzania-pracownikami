@@ -26,6 +26,7 @@ class EmployeeHome extends Component {
             employee: '',
         agreement: '',
         projects: [],
+            raiseRequests: [],
         isLoading: true};
         this.logout.bind(this);
     }
@@ -61,7 +62,7 @@ class EmployeeHome extends Component {
             .then(
                 response => {
                     const data = response.data;
-                    this.setState({agreement: data, isLoading:false});
+                    this.setState({agreement: data, isLoading:false, raiseRequests: data.raiseRequests});
 
                 }
             )
@@ -102,7 +103,6 @@ class EmployeeHome extends Component {
     }
 
   render() {
-        console.log(this.state.agreement)
     if(localStorage.getItem("loggedUserRole")==="ROLE_EMPLOYEE")
     {
 
@@ -111,9 +111,20 @@ class EmployeeHome extends Component {
             return <tr key={project.id}>
                 <td style={{whiteSpace: 'nowrap'}}>{project.client}</td>
                 <td>{project.description}</td>
-                <td>{project.finished.toString()}</td>
+                <td>{project.finished ? "Tak" : "Nie"}</td>
             </tr>
         });
+
+
+        const raiseRequestsList = this.state.raiseRequests.map(raiseRequest => {
+                return <tr className={raiseRequest.considered && raiseRequest.accepted ? "table table-success" : raiseRequest.considered ? "table table-danger" : "table table-warning"}>
+                    <td>{raiseRequest.salaryRequest}</td>
+                    <td>{raiseRequest.considered ? "Tak" : "Nie"}</td>
+                    <td>{raiseRequest.accepted ? "Tak" : "Nie"}</td>
+
+                </tr>
+            });
+
     return (
 
         <Row><Col sm={{size: 8, offset: 2}}>
@@ -152,15 +163,18 @@ class EmployeeHome extends Component {
                         <Container>
                         <h1 className="display-4">Moja umowa</h1>
 
-                            <p className="lead"> Numer umowy: {this.state.agreement.number}</p>
+                            {this.state.agreement ?
+                                <div>
+                            <p className="lead"> Numer umowy: {this.state.agreement.id}</p>
                             <p className="lead">Data rozpoczęcia: {this.state.agreement.dateFrom}</p>
                             <p className="lead">Data zakończenia: {this.state.agreement.dateTo}</p>
 
                             <p className="lead"> Płaca: {this.state.agreement.salary}</p>
 
+
                         <ButtonGroup>
                             <Button size="sm" color="primary" tag={Link} to={"/employee/agreement/" + this.state.agreement.id}>Poproś o podwyżkę</Button>
-                        </ButtonGroup>
+                        </ButtonGroup></div> : <h3>Brak aktywnej umowy</h3> }
         </Container>
             </Col>
             <Col sm="6">
@@ -181,6 +195,26 @@ class EmployeeHome extends Component {
                         </Table>
             </Container>
             </Col></Row>
+            <Row>
+                <Col sm="6">
+                    <Container>
+
+                        <h1 className="display-4">Prośby o podwyżkę</h1>
+                        <Table className="mt-4">
+                            <thead>
+                            <tr>
+                                <th>Kwota</th>
+                                <th>Rozpatrzona</th>
+                                <th>Zaakceptowana</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {raiseRequestsList}
+                            </tbody>
+                        </Table>
+                    </Container>
+                </Col>
+            </Row>
         </Container>
         </Col></Row>
 

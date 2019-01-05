@@ -62,9 +62,9 @@ class ManagerAgreementsList extends Component {
     }
 
     const agreementsList = agreements.map(agreement => {
-    //   const address = `${group.address || ''} ${group.city || ''} ${group.stateOrProvince || ''}`;
+    if(agreement.active) {
       return <tr key={agreement.id}>
-        <td style={{whiteSpace: 'nowrap'}}>{agreement.number}</td>
+        <td style={{whiteSpace: 'nowrap'}}>{agreement.id}</td>
         <td>{agreement.user.firstName} {agreement.user.secondName}</td>
         <td>{agreement.dateFrom.toString().slice(0,10)}</td>
         <td>{agreement.dateTo.toString().slice(0,10)}</td>
@@ -77,7 +77,7 @@ class ManagerAgreementsList extends Component {
           </ButtonGroup>
         </td>
       </tr>
-    });
+    }});
 
     return (
       <div>
@@ -87,7 +87,7 @@ class ManagerAgreementsList extends Component {
             <Button color="success" tag={Link} to="/manager/agreement/new">Dodaj umowę</Button>
           </div>
           <h3>Zarządzaj umowami</h3>
-          <Table className="mt-4">
+          <Table className="mt-4 table table-hover">
             <thead>
             <tr>
               <th width="20%">Numer umowy</th>

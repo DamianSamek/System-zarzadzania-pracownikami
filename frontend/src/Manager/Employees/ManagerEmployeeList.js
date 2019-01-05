@@ -86,7 +86,7 @@ class ManagerEmployeeList extends Component {
             <Button color="success" tag={Link} to="/manager/employee/new">Dodaj pracownika</Button>
           </div>
           <h3>Zarządzaj pracownikami</h3>
-          <Table className="mt-4">
+          <Table className="mt-4 table table-hover">
             <thead>
             <tr>
               <th width="20%">Imię</th>

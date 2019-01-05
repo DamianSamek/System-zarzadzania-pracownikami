@@ -8,10 +8,7 @@ import ur.edu.pl.project.exceptions.ApiException;
 import ur.edu.pl.project.model.Agreement;
 import ur.edu.pl.project.model.Employee;
 import ur.edu.pl.project.model.Project;
-import ur.edu.pl.project.model.dto.AgreementDTO;
-import ur.edu.pl.project.model.dto.AgreementEmployeeDto;
-import ur.edu.pl.project.model.dto.AgreementWithEmployeeEmailDto;
-import ur.edu.pl.project.model.dto.ProjectDTO;
+import ur.edu.pl.project.model.dto.*;
 import ur.edu.pl.project.repositories.AgreementRepository;
 import ur.edu.pl.project.repositories.EmployeeRepository;
 
@@ -46,17 +43,17 @@ public class AgreementService {
 
     public Agreement createAgreement(AgreementWithEmployeeEmailDto agreementFromJSON) throws ApiException {
 
-        Agreement existingAgreement = agreementRepository.findByNumber(agreementFromJSON.getNumber());
+        Agreement existingAgreement = agreementRepository.findByEmployeeUserEmail(agreementFromJSON.getEmployeeEmail());
         Employee employee = employeeRepository.findByUserEmail(agreementFromJSON.getEmployeeEmail());
         Agreement agreement = new Agreement();
         if (existingAgreement==null && employee!=null) {
 
             agreement.setDateFrom(agreementFromJSON.getDateFrom());
             agreement.setDateTo(agreementFromJSON.getDateTo());
-            agreement.setNumber(agreementFromJSON.getNumber());
             agreement.setSalary(agreementFromJSON.getSalary());
             agreement.setDateOfCreation(new Date());
             agreement.setEmployee(employee);
+            agreement.setActive(true);
             agreementRepository.save(agreement);
         }
         else throw new ApiException("lipa", HttpStatus.BAD_REQUEST,"Lipa");
@@ -69,12 +66,12 @@ public class AgreementService {
         return new AgreementDTO(agreement);
     }
 
-    public AgreementDTO getAgreementForEmployee(int id) throws ApiException{
+    public AgreementRaiseRequestDTO getAgreementForEmployee(int id) throws ApiException{
 
         if(id==authService.currentUser().getId()) {
             Employee employee = employeeRepository.findByUserId(id);
             Agreement agreement = agreementRepository.findByEmployeeId(employee.getId());
-            return new AgreementDTO(agreement);
+            return new AgreementRaiseRequestDTO(agreement);
         } else throw new ApiException("400",HttpStatus.BAD_REQUEST,"400");
 
     }
@@ -83,9 +80,8 @@ public class AgreementService {
 
         Agreement agreement = agreementRepository.findById(id).get();
         if(agreement!=null) {
-            agreement.getEmployee().setAgreement(null);
-            employeeRepository.save(agreement.getEmployee());
-            agreementRepository.delete(agreement);
+            agreement.setActive(false);
+            agreementRepository.save(agreement);
         }
         else throw new AgreementApiException("401 BAD_REQUEST",HttpStatus.BAD_REQUEST,"Agreement not found");
     }

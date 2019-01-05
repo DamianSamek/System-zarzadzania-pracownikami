@@ -68,7 +68,7 @@ class EmployeeAgreementRaiseRequest extends Component {
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
             <Label for="dateFrom">Proponowana kwota po podwyżce:</Label>
-            <Input type="text" name="salaryRequest" id="salaryRequest"
+            <Input required type="number" name="salaryRequest" id="salaryRequest"
                    onChange={this.handleChange} autoComplete="address-level1"/>
           </FormGroup>
 

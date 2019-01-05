@@ -3,8 +3,6 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ManagerEmployeeList from './Manager/Employees/ManagerEmployeeList';
 import ManagerEmployeeEdit from './Manager/Employees/ManagerEmployeeEdit';
-import ManagerUserEdit from'./Manager/Users/ManagerUserEdit';
-import ManagerUsersList from './Manager/Users/ManagerUsersList';
 import ManagerProjectsList from './Manager/Projects/ManagerProjectsList';
 import ManagerProjectEdit from './Manager/Projects/ManagerProjectEdit';
 import ManagerAgreementsList from './Manager/Agreements/ManagerAgreementsList';
@@ -23,8 +21,6 @@ class App extends Component {
       <Router>
         <Switch>
           <Route path='/' exact={true} component={Login}/>
-          <Route path='/manager/user' exact={true} component={ManagerUsersList}/>
-          <Route path='/manager/user/:id' component={ManagerUserEdit}/>
           <Route path='/manager/employee' exact={true} component={ManagerEmployeeList}/>
           <Route path='/manager/employee/:id' component={ManagerEmployeeEdit}/>
           <Route path='/manager/project' exact={true} component={ManagerProjectsList}/>

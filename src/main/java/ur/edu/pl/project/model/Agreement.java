@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -24,10 +25,6 @@ public class Agreement {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
-
-    @NotNull
-    @Size(max=45)
-    private String number;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dateFrom;
@@ -48,8 +45,10 @@ public class Agreement {
     @NotNull
     private int salary;
 
-    @Transient
+    @OrderBy("id DESC")
     @OneToMany(mappedBy="agreement")
     List<RaiseRequest> raiseRequests;
+
+    private boolean active;
 
 }

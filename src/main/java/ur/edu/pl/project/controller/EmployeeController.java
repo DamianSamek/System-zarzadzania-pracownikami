@@ -35,6 +35,13 @@ public class EmployeeController {
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
+    @RequestMapping(method = RequestMethod.DELETE, value = "/employee/{id}")
+    public ResponseEntity<?> deleteEmployee(@PathVariable("id") int id) throws ApiException {
+
+        employeeService.deleteEmployee(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
 
 }

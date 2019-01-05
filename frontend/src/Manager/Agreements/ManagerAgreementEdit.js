@@ -110,16 +110,16 @@ class ManagerAgreementEdit extends Component {
         {item.id ? <Form onSubmit={this.handleSubmit}>
           <FormGroup>
             <Label for="dateFrom">Data rozpoczęcia</Label>
-            <Input type="text" name="dateFrom" id="dateFrom" value={item.dateFrom || ''}
+            <Input required type="date" name="dateFrom" id="dateFrom" value={item.dateFrom || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
           </FormGroup>
           <FormGroup>
             <Label for="email">Data zakończenia</Label>
-            <Input type="text" name="dateTo" id="dateTo" value={item.dateTo || ''}
+            <Input required type="date" name="dateTo" id="dateTo" value={item.dateTo || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
                    </FormGroup>
                    <Label for="email">Płaca</Label>
-            <Input type="text" name="salary" id="salary" value={item.salary || ''}
+            <Input required type="number" name="salary" id="salary" value={item.salary || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
           <FormGroup>
             <Button color="primary" type="submit">Zapisz</Button>{' '}
@@ -130,24 +130,20 @@ class ManagerAgreementEdit extends Component {
       :
       
       <Form onSubmit={this.handleSubmit}>
-          <FormGroup>
-            <Label for="dateFrom">Numer umowy:</Label>
-            <Input type="text" name="number" id="number"
-                   onChange={this.handleChange} autoComplete="address-level1"/>
-          </FormGroup>
+
           <FormGroup>
             <Label for="dateFrom">Data rozpoczęcia</Label>
-            <Input type="text" name="dateFrom" id="dateFrom"
+            <Input required type="date" name="dateFrom" id="dateFrom"
                    onChange={this.handleChange} autoComplete="address-level1"/>
           </FormGroup>
           <FormGroup>
             <Label for="email">Data zakończenia</Label>
-            <Input type="text" name="dateTo" id="dateTo" 
+            <Input required type="date" name="dateTo" id="dateTo"
                    onChange={this.handleChange} autoComplete="address-level1"/>
                    </FormGroup>
                    <FormGroup>
             <Label for="email">Płaca</Label>
-            <Input type="text" name="salary" id="salary" 
+            <Input required type="number" name="salary" id="salary"
                    onChange={this.handleChange} autoComplete="address-level1"/>
                    </FormGroup>
           <FormGroup> </FormGroup>
@@ -155,7 +151,7 @@ class ManagerAgreementEdit extends Component {
 
             <FormGroup>
               <Label for="email">Pracownik</Label>
-              <Select components={makeAnimated()} onChange={this.onChangeSelect} options={employees}  />
+              <Select placeholder="Wybierz pracownika" components={makeAnimated()} onChange={this.onChangeSelect} options={employees}  />
             </FormGroup>
           </FormGroup>
           <FormGroup>

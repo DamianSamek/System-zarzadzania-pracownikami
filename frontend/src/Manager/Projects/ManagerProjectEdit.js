@@ -114,17 +114,17 @@ class ManagerProjectEdit extends Component {
           <FormGroup>
           
             <Label for="firstName">Klient</Label>
-            <Input type="text" name="client" id="client" value={item.client || ''}
+            <Input required type="text" name="client" id="client" value={item.client || ''}
                    onChange={this.handleChange} autoComplete="name"/>
           </FormGroup>
           <FormGroup>
             <Label for="secondName">Opis</Label>
-            <Input type="text" name="description" id="description" value={item.description || ''}
+            <Input required type="text" name="description" id="description" value={item.description || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
           </FormGroup>
           <FormGroup>
             <Label for="email">Stawka</Label>
-            <Input type="text" name="fee" id="fee" value={item.fee || ''}
+            <Input required type="number" name="fee" id="fee" value={item.fee || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
           </FormGroup>
           <FormGroup>

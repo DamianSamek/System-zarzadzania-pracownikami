@@ -72,7 +72,7 @@ class EmployeeProjectsList extends Component {
         <EmployeeAppNavbar/>
         <Container fluid>
           <h3>Moje projekty</h3>
-          <Table className="mt-4">
+          <Table className="mt-4 table table-hover">
             <thead>
             <tr>
               <th width="20%">Klient</th>

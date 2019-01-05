@@ -66,7 +66,7 @@ class ManagerProjectsList extends Component {
         <td style={{whiteSpace: 'nowrap'}}>{project.client}</td>
         <td>{project.description}</td>
         <td>{project.fee}</td>
-        <td>{project.finished.toString()}</td>
+        <td>{project.finished ? "Tak" : "Nie"}</td>
         
         <td>
           <ButtonGroup>
@@ -85,7 +85,7 @@ class ManagerProjectsList extends Component {
             <Button color="success" tag={Link} to="/manager/project/new">Dodaj projekt</Button>
           </div>
           <h3>Zarządzaj projektami</h3>
-          <Table className="mt-4">
+          <Table className="mt-4 table table-hover">
             <thead>
             <tr>
               <th width="20%">Klient</th>

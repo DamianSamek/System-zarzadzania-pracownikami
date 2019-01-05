@@ -86,7 +86,7 @@ class ExpensesJournal extends Component {
                     <ManagerAppNavbar/>
                     <Container fluid>
                         <h3>Dziennik miesięcznych wydatków</h3>
-                        <Table className="mt-4">
+                        <Table className="mt-4 table table-hover">
                             <thead>
                             <tr>
                                 <th width="20%">Pracownik</th>

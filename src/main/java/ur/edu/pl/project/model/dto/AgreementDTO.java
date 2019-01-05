@@ -13,18 +13,18 @@ import lombok.Data;
 public class AgreementDTO {
 
     private int id;
-    private String number;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
     private Date dateFrom;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
     private Date dateTo;
     private int salary;
+    private boolean active;
 
     public AgreementDTO(Agreement agreement) {
         this.id = agreement.getId();
-        this.number = agreement.getNumber();
         this.dateFrom = agreement.getDateFrom();
         this.dateTo = agreement.getDateTo();
         this.salary = agreement.getSalary();
+        this.active = agreement.isActive();
     }
 }

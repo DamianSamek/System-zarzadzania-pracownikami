@@ -13,10 +13,10 @@ import java.util.Date;
 public interface AgreementWithEmployeeDetails {
 
     int getId();
-    String getNumber();
     Date getDateFrom();
     Date getDateTo();
     int getSalary();
+    boolean isActive();
 
 
     @Value("#{@agreementService.getAgreementEmployeeDto(target)}")

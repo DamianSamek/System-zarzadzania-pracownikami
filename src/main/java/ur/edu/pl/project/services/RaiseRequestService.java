@@ -43,9 +43,8 @@ public class RaiseRequestService {
         Agreement agreement = agreementRepository.findById(raiseRequestFromJSON.getAgreementId()).get();
         Employee employee = employeeRepository.findByUserEmail(authService.currentUser().getEmail());
 
-        RaiseRequest existingRaiseRequest = raiseRequestRepository.findByAgreementId(raiseRequestFromJSON.getAgreementId());
 
-        if(existingRaiseRequest==null && agreement!=null && employee!=null) {
+        if(agreement!=null && employee!=null) {
 
             RaiseRequest raiseRequest = new RaiseRequest();
             raiseRequest.setAgreement(agreement);
@@ -53,6 +52,7 @@ public class RaiseRequestService {
             raiseRequest.setConsidered(false);
             raiseRequest.setAccepted(false);
             raiseRequest.setSalaryRequest(raiseRequestFromJSON.getSalaryRequest());
+            agreement.getRaiseRequests().add(raiseRequest);
 
             raiseRequestRepository.save(raiseRequest);
         }
@@ -62,8 +62,8 @@ public class RaiseRequestService {
     public AgreementDTO getRaiseRequestAgreementDto(RaiseRequest raiseRequest) {
         Agreement agreementFromRequest = raiseRequest.getAgreement();
         return new AgreementDTO(agreementFromRequest.getId(),
-                agreementFromRequest.getNumber(), agreementFromRequest.getDateFrom(),
-                agreementFromRequest.getDateTo(), agreementFromRequest.getSalary());
+                 agreementFromRequest.getDateFrom(),
+                agreementFromRequest.getDateTo(), agreementFromRequest.getSalary(), agreementFromRequest.isActive());
     }
 
     public void considerRaiseRequest(int id, RaiseRequest raiseRequestFromJSON) throws ApiException{
@@ -73,9 +73,8 @@ public class RaiseRequestService {
             raiseRequest.setAccepted(raiseRequestFromJSON.isAccepted());
             if(raiseRequest.isAccepted()) {
                 raiseRequest.getAgreement().setSalary(raiseRequest.getSalaryRequest());
-                agreementRepository.save(raiseRequest.getAgreement());
             }
-            raiseRequestRepository.delete(raiseRequest);
+            agreementRepository.save(raiseRequest.getAgreement());
         }
         else throw new ApiException("401", HttpStatus.BAD_REQUEST,"Nie znaleziono zapytania");
     }

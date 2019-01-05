@@ -10,7 +10,6 @@ import org.hibernate.annotations.Where;
 
 @Entity
 @Table(name="raise_request")
-@Where(clause = "considered=0")
 @Data
 public class RaiseRequest {
 

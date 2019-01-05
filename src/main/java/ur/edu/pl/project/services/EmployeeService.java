@@ -53,6 +53,7 @@ public class EmployeeService {
                 newUser.setEmail(employee.getEmail());
                 newUser.setPassword(encryptionService.encode("damian"));
                 newUser.setEnabled(true);
+                employee.setEnabled(true);
                 newUser.setFirstName(employee.getFirstName());
                 newUser.setSecondName(employee.getSecondName());
                 newUser.setTokenValid(true);
@@ -114,6 +115,7 @@ public class EmployeeService {
         Employee employee = employeeRepository.findById(id).get();
         if(employee!=null) {
             employee.setEnabled(false);
+            if(employee.getAgreement()!=null) employee.getAgreement().setActive(false);
             employeeRepository.save(employee);
         }
         else throw new ApiException("401",HttpStatus.BAD_REQUEST,"Nie znaleziono pracownika");
