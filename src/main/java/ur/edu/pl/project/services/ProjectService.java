@@ -52,7 +52,7 @@ public class ProjectService {
                 .orElseThrow(() -> new ApiException("Błąd przy edycji projektu",
                         HttpStatus.BAD_REQUEST,"Nie znaleziono projektu"));
 
-        if(existingProject!=null) {
+
             if (projectDTO.getClient()!=null)
             existingProject.setClient(projectDTO.getClient());
             if (projectDTO.getFee()!=0)
@@ -79,7 +79,7 @@ public class ProjectService {
             }}
 
             projectRepository.save(existingProject);
-        }
+
 
     }
 

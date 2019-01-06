@@ -64,8 +64,7 @@ public class AgreementService {
 
 
     public AgreementDTO getAgreement(int id) throws ApiException {
-        Agreement agreement = agreementRepository.findById(id).get();
-        if(agreement==null) throw new ApiException("Błąd przy pobraniu umowy",HttpStatus.BAD_REQUEST,"Nie znaleziono umowy");
+        Agreement agreement = agreementRepository.findById(id).orElseThrow(() -> new ApiException("Błąd przy pobraniu umowy",HttpStatus.BAD_REQUEST,"Nie znaleziono umowy"));
         return new AgreementDTO(agreement);
     }
 
@@ -84,9 +83,9 @@ public class AgreementService {
     public void deleteAgreement(int id) throws ApiException {
 
         Agreement agreement = agreementRepository.findById(id).orElseThrow(() -> new ApiException("Błąd przy usuwaniu umowy",HttpStatus.BAD_REQUEST,"Nie znaleziono umowy"));
-        if(agreement!=null) {
+
             agreement.setActive(false);
             agreementRepository.save(agreement);
-        }
+
     }
 }

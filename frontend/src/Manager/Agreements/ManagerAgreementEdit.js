@@ -85,8 +85,13 @@ class ManagerAgreementEdit extends Component {
       },
       body: JSON.stringify(item),
     });
-    if(this.state.selectedOption!=="")
-    this.props.history.push("/manager/agreement");
+
+    if(item.id) {
+      this.props.history.push("/manager/agreement");
+    }
+    else if(this.state.selectedAgreement!=="")
+      this.props.history.push("/manager/agreement");
+
   }
 
   onChangeSelect = (selectedOption) => {

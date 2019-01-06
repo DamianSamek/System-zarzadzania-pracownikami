@@ -14,6 +14,12 @@ public interface EmployeeWithUserDetails {
     int getId();
     String getPhone();
     String getPosition();
+    String getStreetAddress();
+    String getState();
+    String getPostalCode();
+    String getCity();
+
+
     boolean isEnabled();
 
     @Value("#{@employeeService.getEmployeeUserDto(target).getFirstName()}")

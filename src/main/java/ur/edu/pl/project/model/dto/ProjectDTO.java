@@ -25,4 +25,6 @@ public class ProjectDTO {
         this.fee=project.getFee();
         this.finished=project.isFinished();
     }
+
+    public ProjectDTO() {}
 }

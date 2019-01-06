@@ -2,6 +2,7 @@ package ur.edu.pl.project.services;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
@@ -10,51 +11,89 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
+import ur.edu.pl.project.exceptions.ApiException;
 import ur.edu.pl.project.exceptions.UserCreateException;
 import ur.edu.pl.project.model.Employee;
+import ur.edu.pl.project.model.Role;
 import ur.edu.pl.project.model.User;
 import ur.edu.pl.project.model.dto.EmployeeDTO;
-import ur.edu.pl.project.repositories.UserRepository;
+import ur.edu.pl.project.repositories.EmployeeRepository;
 
 import java.util.ArrayList;
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
 public class EmployeeServiceTest {
 
-    EmployeeDTO employee;
+    EmployeeDTO employeeDTO;
 
     @Mock
+    EmployeeRepository employeeRepositoryMock;
+
+    @InjectMocks
     EmployeeService employeeService;
 
-    @Mock
-    UserRepository userRepository;
+
 
     @BeforeEach
     void initMocks() {
         MockitoAnnotations.initMocks(this);
     }
 
-    @BeforeEach
-    void setUp() {
-        employee = new EmployeeDTO();
-        employee.setState("Podkarpackie");
-        employee.setPhone("725218446");
-        employee.setStreetAddress("ul. Warszawska 4");
-        employee.setPostalCode("38-222");
-        employee.setPosition("Programista");
-        employee.setCity("Rzeszow");
-//        employee.setProjects(new ArrayList<>());
-//        employee.setEnabled(true);
-        employee.setFirstName("Marcin");
-        employee.setSecondName("Kobylarz");
-        employee.setEmail("kobylarz@firma.pl");
+    @Test
+    public void createEmployee_IfEmployeeAlreadyExistsShouldThrowAnException() throws UserCreateException{
+            when(employeeRepositoryMock.findByUserEmail("damian@firma.pl")).thenReturn(new Employee());
+            assertThrows(UserCreateException.class, () -> {Employee existingEmployee = employeeRepositoryMock.findByUserEmail("damian@firma.pl");
+                if (existingEmployee!=null)
+                    throw new UserCreateException("Błąd w tworzeniu pracownika", HttpStatus.BAD_REQUEST,
+                            "Pracownik o podanym emailu istnieje.");});
+        }
+
+        @Before
+        public void set() {
+        employeeDTO = new EmployeeDTO();
+        employeeDTO.setPassword("damian");
+        employeeDTO.setConfirmPassword("damain");
+        }
+    @Test
+    public void createEmployee_IfPasswordAndConfirmPasswordNotMatchShouldThrowAnException(){
+
+        assertThrows(UserCreateException.class, () -> {
+            if (employeeDTO.getPassword().equals(employeeDTO.getConfirmPassword())) {
+                //newUser.setPassword(encryptionService.encode(employee.getPassword()));
+            }
+            else throw new UserCreateException("Błąd w tworzeniu pracownika",
+                    HttpStatus.BAD_REQUEST,"Hasła nie zgadzają się");
+        });
     }
 
     @Test
-    public void createEmployee_employeeAlreadyExists() throws UserCreateException{
+    public void modifyEmployee_IfEmployeeDoesntExistShouldThrowAnException() {
 
-        Mockito.doThrow(UserCreateException.class).when(employeeService).createEmployee(employee);
-        assertThrows(UserCreateException.class, () -> employeeService.createEmployee(employee));
+        when(employeeRepositoryMock.findById(0)).thenReturn(Optional.empty());
+        assertThrows(UserCreateException.class, () -> {
+            Employee existingEmployee = employeeRepositoryMock.findById(0)
+                    .orElseThrow(() -> new UserCreateException("Błąd w edycji pracownika",
+                            HttpStatus.BAD_REQUEST, "Pracownik nie istnieje."));
+        });
     }
-}
+
+    @Test
+    public void deleteEmployee_IfEmployeeDoesntExistShouldThrowAnException() {
+
+        when(employeeRepositoryMock.findById(0)).thenReturn(Optional.empty());
+        assertThrows(ApiException.class, () -> {
+            Employee employee = employeeRepositoryMock.findById(0)
+                    .orElseThrow(() -> new ApiException("Błąd przy usuwaniu pracownika"
+                            ,HttpStatus.BAD_REQUEST,"Nie znaleziono pracownika"));
+        });
+    }
+    }

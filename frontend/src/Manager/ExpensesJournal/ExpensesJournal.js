@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Table } from 'reactstrap';
+import {Row,Col, Container, Table} from 'reactstrap';
 import ManagerAppNavbar from '../ManagerAppNavbar';
 import axios from 'axios';
 import {Pie} from 'react-chartjs-2';
@@ -84,6 +84,7 @@ class ExpensesJournal extends Component {
             return (
                 <div>
                     <ManagerAppNavbar/>
+                    <Row> <Col sm={{size: 8, offset: 2}}>
                     <Container fluid>
                         <h3>Dziennik miesięcznych wydatków</h3>
                         <Table className="mt-4 table table-hover">
@@ -105,6 +106,7 @@ class ExpensesJournal extends Component {
                                 <Pie data={data}/>
                             </div></Container>
                     </Container>
+                    </Col></Row>
                 </div>
             );}else return <div>BRAK DOSTĘPU</div>
     }

@@ -15,8 +15,8 @@ class ManagerEmployeeEdit extends Component {
     streetAddress: '',
     state: '',
     city: '',
-      password: '',
-      confirmPassword: ''
+    password: '',
+    confirmPassword: ''
 
   };
 
@@ -133,6 +133,32 @@ class ManagerEmployeeEdit extends Component {
             <Label for="phone">Stanowisko</Label>
             <Input required type="text" name="position" id="position" value={item.position || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
+
+              <FormGroup>
+              </FormGroup>
+              <Label for="phone">Ulica</Label>
+              <Input required type="text" name="streetAddress" id="streetAddress" value={item.streetAddress || ''}
+                     onChange={this.handleChange} autoComplete="address-level1"/>
+
+              <FormGroup>
+              </FormGroup>
+              <Label for="phone">Miejscowość</Label>
+              <Input required type="text" name="city" id="city" value={item.city || ''}
+                     onChange={this.handleChange} autoComplete="address-level1"/>
+
+              <FormGroup>
+              </FormGroup>
+              <Label for="phone">Kod pocztowy</Label>
+              <Input required pattern="\d{2}-\d{3}" title="Wymagany format: 00-000" type="text" name="postalCode" id="postalCode" value={item.postalCode || ''}
+                     onChange={this.handleChange} autoComplete="address-level1"/>
+
+              <FormGroup>
+              </FormGroup>
+              <FormGroup>
+                <Label for="phone">Województwo</Label>
+                <Input required type="text" name="state" id="state" value={item.state || ''}
+                       onChange={this.handleChange} autoComplete="address-level1"/>
+              </FormGroup>
                 
           <FormGroup>
             <Button color="primary" type="submit">Zapisz</Button>{' '}
