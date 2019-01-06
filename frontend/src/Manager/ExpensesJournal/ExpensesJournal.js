@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Button, ButtonGroup, Container, Table } from 'reactstrap';
+import { Container, Table } from 'reactstrap';
 import ManagerAppNavbar from '../ManagerAppNavbar';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {Pie} from 'react-chartjs-2';
 
@@ -53,13 +52,14 @@ class ExpensesJournal extends Component {
             const salaries = [];
             const agreementsList = agreements.map(agreement => {
 
+                if(agreement.active){
                 sumOfExpenses +=  agreement.salary;
-                labels.push(agreement.user.firstName+" "+agreement.user.secondName);
+                labels.push(agreement.firstName+" "+agreement.secondName);
                     salaries.push(agreement.salary);
                 return <tr key={agreement.id}>
-                    <td style={{whiteSpace: 'nowrap'}}>{agreement.user.firstName + " "+agreement.user.secondName}</td>
+                    <td style={{whiteSpace: 'nowrap'}}>{agreement.firstName + " "+agreement.secondName}</td>
                     <td>{agreement.salary}</td>
-                </tr>
+                </tr>}
             });
 
             const data = {

@@ -20,7 +20,7 @@ public class RepositoriesConfiguration extends RepositoryRestConfigurerAdapter {
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         config.setBasePath("/api");
-        config.exposeIdsFor(Employee.class, Agreement.class, Manager.class, Project.class, RaiseRequest.class, Role.class, User.class);
+        config.exposeIdsFor(Employee.class, Agreement.class, Project.class, RaiseRequest.class, Role.class, User.class);
 
         config.getCorsRegistry().addMapping("/**").allowedOrigins("*")
                 .allowedMethods("PUT", "DELETE", "GET", "POST", "OPTIONS", "PATCH").allowedHeaders("*")

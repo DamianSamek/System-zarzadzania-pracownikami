@@ -17,50 +17,42 @@ import java.util.List;
 @Entity
 @Table(name="employee")
 @Data
-@Where(clause="enabled=1")
 public class Employee {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
+    @NotNull
     @Size(max=45)
     private String phone;
+    @NotNull
     @Size(max=45)
     private String position;
+    @NotNull
     @Size(max=45)
     private String streetAddress;
+    @NotNull
     @Size(max=256)
     private String postalCode;
+    @NotNull
     @Size(max=45)
     private String state;
+    @NotNull
     @Size(max=45)
     private String city;
+
+
+    @NotNull
     private boolean enabled;
 
+    @NotNull
     @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
-    @Transient
-    @JsonProperty(access=Access.WRITE_ONLY)
-    @Size(max = 65)
-    private String firstName;
-    @Transient
-    @JsonProperty(access=Access.WRITE_ONLY)
-    @Size(max = 65)
-    private String secondName;
-    @Transient
-    @JsonProperty(access=Access.WRITE_ONLY)
-    @Email
-    @Size(max = 65)
-    private String email;
-
-    @OneToOne(mappedBy = "employee")
-    private Agreement agreement;
-
-
-
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "employee")
+    List<Agreement> agreements;
 
     @ManyToMany(mappedBy="employees", cascade = {CascadeType.ALL})
     List<Project> projects;

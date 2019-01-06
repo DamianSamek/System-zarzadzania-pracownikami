@@ -18,18 +18,23 @@ public class RaiseRequest {
     private int id;
 
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name="id_employee")
     public Employee employee;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name="id_agreement")
     public Agreement agreement;
 
+    @NotNull
     private int salaryRequest;
 
+    @NotNull
     private boolean accepted;
 
+    @NotNull
     private boolean considered;
 
 

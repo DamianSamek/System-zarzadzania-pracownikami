@@ -15,4 +15,5 @@ public interface AgreementRepository extends JpaRepository<Agreement, Integer> {
 
     Agreement findByEmployeeId(@Param("id") int id);
     Agreement findByEmployeeUserEmail(@Param("email") String email);
+    List<Agreement> findAllByEmployeeUserEmail(@Param("email") String email);
 }

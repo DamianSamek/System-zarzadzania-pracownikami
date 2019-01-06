@@ -59,9 +59,8 @@ class ManagerEmployeeList extends Component {
     if (isLoading) {
       return <p>Loading...</p>;
     }
-    console.log(employees);
     const employeesList = employees.map(employee => {
-    //   const address = `${group.address || ''} ${group.city || ''} ${group.stateOrProvince || ''}`;
+    if (employee.enabled) {
       return <tr key={employee.id}>
         <td style={{whiteSpace: 'nowrap'}}>{employee.firstName}</td>
         <td>{employee.secondName}</td>
@@ -76,7 +75,7 @@ class ManagerEmployeeList extends Component {
           </ButtonGroup>
         </td>
       </tr>
-    });
+    }});
 
     return (
       <div>

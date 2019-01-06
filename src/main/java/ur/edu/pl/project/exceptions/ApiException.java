@@ -10,42 +10,42 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties({"httpStatus", "message", "errorDetails", "stackTrace", "cause", "suppressed", "localizedMessage"})
 public class ApiException extends Exception {
 
-	private static final long serialVersionUID = 1876819830060979152L;
-	private final HttpStatus httpStatus;
-	private final String errorDescription;
-	private final String errorCode;
-	private List<AbstractMap.SimpleEntry<String, String>> errorDetails;
+    private static final long serialVersionUID = 1876819830060979152L;
+    private final HttpStatus httpStatus;
+    private final String errorDescription;
+    private final String errorCode;
+    private List<AbstractMap.SimpleEntry<String, String>> errorDetails;
 
-	public ApiException(String errorCode, HttpStatus httpStatus, String errorDescription) {
-		super();
-		this.httpStatus = httpStatus;
-		this.errorDescription = errorDescription;
-		this.errorCode = errorCode;
-	}
+    public ApiException(String errorCode, HttpStatus httpStatus, String errorDescription) {
+        super();
+        this.httpStatus = httpStatus;
+        this.errorDescription = errorDescription;
+        this.errorCode = errorCode;
+    }
 
-	@Override
-	public String getMessage() {
-		return String.format("%s: %s", httpStatus, errorDescription);
-	}
+    @Override
+    public String getMessage() {
+        return String.format("%s: %s", httpStatus, errorDescription);
+    }
 
-	public HttpStatus getHttpStatus() {
-		return httpStatus;
-	}
+    public HttpStatus getHttpStatus() {
+        return httpStatus;
+    }
 
-	public String getErrorDescription() {
-		return errorDescription;
-	}
+    public String getErrorDescription() {
+        return errorDescription;
+    }
 
-	public List<AbstractMap.SimpleEntry<String, String>> getErrorDetails() {
-		return errorDetails;
-	}
+    public List<AbstractMap.SimpleEntry<String, String>> getErrorDetails() {
+        return errorDetails;
+    }
 
-	public void setErrorDetails(List<AbstractMap.SimpleEntry<String, String>> errorDetails) {
-		this.errorDetails = errorDetails;
-	}
+    public void setErrorDetails(List<AbstractMap.SimpleEntry<String, String>> errorDetails) {
+        this.errorDetails = errorDetails;
+    }
 
-	public String getErrorCode() {
-		return errorCode;
-	}
+    public String getErrorCode() {
+        return errorCode;
+    }
 
 }

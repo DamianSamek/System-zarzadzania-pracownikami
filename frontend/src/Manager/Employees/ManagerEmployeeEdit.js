@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import ManagerAppNavbar from '../ManagerAppNavbar';
+import axios from 'axios';
 
 class ManagerEmployeeEdit extends Component {
 
@@ -13,7 +14,9 @@ class ManagerEmployeeEdit extends Component {
     phone: '',
     streetAddress: '',
     state: '',
-    city: ''
+    city: '',
+      password: '',
+      confirmPassword: ''
 
   };
 
@@ -53,17 +56,42 @@ class ManagerEmployeeEdit extends Component {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch( (item.id)? `/api/employee/${this.props.match.params.id}` : '/api/employee', {
-      method: (item.id) ? 'PATCH' : 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem("token")
-      },
-      body: JSON.stringify(item),
-      
-    });
-    this.props.history.push('/manager/employee');
+
+    if(!item.id) {
+    var body = JSON.stringify(item);
+      axios.post( `/api/employee`,body,
+       { headers: {
+        "Accept": 'application/json',
+            "Content-Type": 'application/json',
+            "Authorization": localStorage.getItem("token")
+      }}
+      ).catch(
+          (error) => {
+          console.log(error.response.data.message);
+          }
+      )
+        if(item.password===item.confirmPassword)
+        this.props.history.push('/manager/employee');
+    }
+    else {
+      var body = JSON.stringify(item);
+      axios.patch( `/api/employee/${this.props.match.params.id}`,body,
+          { headers: {
+              "Accept": 'application/json',
+              "Content-Type": 'application/json',
+              "Authorization": localStorage.getItem("token")
+            }}
+      ).catch(
+          (error) => {
+            console.log(error.response.data.message);
+          }
+      )
+
+        this.props.history.push('/manager/employee');
+    }
+
+
+
   }
 
   render() {
@@ -71,7 +99,6 @@ class ManagerEmployeeEdit extends Component {
     {
     const {item} = this.state;
     const title = <h2>{item.id ? 'Edycja pracownika' : 'Dodawanie pracownika'}</h2>;
-    console.log(item);
 
     return(<div>
       <ManagerAppNavbar/>
@@ -161,9 +188,21 @@ class ManagerEmployeeEdit extends Component {
 
                  <FormGroup>
         </FormGroup>
+          <FormGroup>
         <Label for="phone">Województwo</Label>
         <Input required type="text" name="state" id="state" value={item.state || ''}
                onChange={this.handleChange} autoComplete="address-level1"/>
+          </FormGroup>
+          <FormGroup>
+              <Label for="phone">Hasło</Label>
+              <Input required type="password" name="password" id="password"
+                     onChange={this.handleChange} autoComplete="address-level1"/>
+          </FormGroup>
+          <FormGroup>
+              <Label for="phone">Potwierdź hasło</Label>
+              <Input required type="password" name="confirmPassword" id="confirmPassword"
+                     onChange={this.handleChange} autoComplete="address-level1"/>
+          </FormGroup>
       <FormGroup>
         <Button color="primary" type="submit">Zapisz</Button>{' '}
         <Button color="secondary" tag={Link} to="/manager/employee">Anuluj</Button>

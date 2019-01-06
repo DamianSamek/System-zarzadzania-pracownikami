@@ -43,7 +43,6 @@ CREATE TABLE `agreement` (
   `salary` int(11) NOT NULL,
   `active` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_employee_UNIQUE` (`id_employee`),
   KEY `fk_agreement_1_idx` (`id_employee`),
   CONSTRAINT `fk_agreement_1` FOREIGN KEY (`id_employee`) REFERENCES `employee` (`id`)
 );

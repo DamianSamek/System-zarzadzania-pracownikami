@@ -6,12 +6,15 @@ import ur.edu.pl.project.model.Agreement;
 import ur.edu.pl.project.model.Employee;
 import ur.edu.pl.project.model.dto.EmployeeUserDto;
 
+import java.util.List;
+
 @Projection(name="withUserDetails", types= {Employee.class})
 public interface EmployeeWithUserDetails {
 
     int getId();
     String getPhone();
     String getPosition();
+    boolean isEnabled();
 
     @Value("#{@employeeService.getEmployeeUserDto(target).getFirstName()}")
     String getFirstName();
@@ -22,6 +25,6 @@ public interface EmployeeWithUserDetails {
     @Value("#{@employeeService.getEmployeeUserDto(target).getEmail()}")
     String getEmail();
 
-    Agreement getAgreement();
+    List<Agreement> getAgreements();
 
 }

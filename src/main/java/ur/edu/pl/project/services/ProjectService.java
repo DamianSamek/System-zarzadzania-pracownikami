@@ -1,16 +1,14 @@
 package ur.edu.pl.project.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import ur.edu.pl.project.exceptions.ApiException;
 import ur.edu.pl.project.model.Employee;
 import ur.edu.pl.project.model.Project;
-import ur.edu.pl.project.model.dto.AgreementDTO;
 import ur.edu.pl.project.model.dto.ProjectDTO;
 import ur.edu.pl.project.repositories.EmployeeRepository;
 import ur.edu.pl.project.repositories.ProjectRepository;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +30,7 @@ public class ProjectService {
         this.employeeRepository = er;
         this.authService = as;
     }
-    public void createProject(ProjectDTO projectDTO) {
+    public void createProject(ProjectDTO projectDTO) throws ApiException{
 
         Project project = new Project();
         project.setClient(projectDTO.getClient());
@@ -42,14 +40,17 @@ public class ProjectService {
         project.setEmployees(new ArrayList<>());
         for(String employee: projectDTO.getEmployees()) {
             Employee emp = employeeRepository.findByUserEmail(employee);
-            emp.addProject(project);
+            if(emp==null) throw new ApiException("Błąd przy dodawaniu projektu", HttpStatus.BAD_REQUEST,"Pracownik nie istnieje");
+            else emp.addProject(project);
         }
         projectRepository.save(project);
     }
 
-    public void updateProject(int id, ProjectDTO projectDTO) {
+    public void updateProject(int id, ProjectDTO projectDTO) throws ApiException {
 
-        Project existingProject = projectRepository.findById(id).get();
+        Project existingProject = projectRepository.findById(id)
+                .orElseThrow(() -> new ApiException("Błąd przy edycji projektu",
+                        HttpStatus.BAD_REQUEST,"Nie znaleziono projektu"));
 
         if(existingProject!=null) {
             if (projectDTO.getClient()!=null)
@@ -61,9 +62,11 @@ public class ProjectService {
             if(projectDTO.getDescription()!=null)
             existingProject.setDescription(projectDTO.getDescription());
 
+            if(!projectDTO.getEmployees().isEmpty())
+            {
             if(existingProject.getEmployees()!=null && !existingProject.getEmployees().isEmpty()) {
 
-                while(existingProject.getEmployees().iterator().hasNext()){
+                while (existingProject.getEmployees().iterator().hasNext()) {
                     existingProject.getEmployees().iterator().next().removeProject(existingProject);
                 }
 
@@ -72,32 +75,31 @@ public class ProjectService {
                 for (String email : projectDTO.getEmployees()) {
                     Employee e = employeeRepository.findByUserEmail(email);
                     e.addProject(existingProject);
-                }
 
+            }}
 
             projectRepository.save(existingProject);
         }
 
     }
 
-    public void deleteProject(int id) {
-        Project existingProject = projectRepository.findById(id).get();
-
-
-
-        if(existingProject!=null) {
+    public void deleteProject(int id) throws ApiException{
+        Project existingProject = projectRepository.findById(id)
+                .orElseThrow(() -> new ApiException("Błąd przy usuwaniu projektu"
+                        ,HttpStatus.BAD_REQUEST,"Nie znaleziono projektu"));
 
             while(existingProject.getEmployees().iterator().hasNext()) {
                 existingProject.getEmployees().iterator().next().removeProject(existingProject);
             }
             projectRepository.delete(existingProject);
-        }
        }
 
-    public List<ProjectDTO> getProjects(int id){
+    public List<ProjectDTO> getProjects(int id) throws ApiException{
         ArrayList<ProjectDTO> projectsDTO = new ArrayList<>();
         if (id==authService.currentUser().getId()){
             Employee employee = employeeRepository.findByUserId(id);
+            if(employee==null) throw new ApiException(
+                    "Błąd przy pobieraniu projektów",HttpStatus.BAD_REQUEST,"Nie znaleziono pracownika");
 
             if (employee.getProjects() != null) {
                 employee.getProjects().stream().forEach(p -> projectsDTO.add(new ProjectDTO(p)));
@@ -108,8 +110,11 @@ public class ProjectService {
 
 
 
-    public ProjectDTO getProject(int id) {
-        Project project = projectRepository.findById(id).get();
+    public ProjectDTO getProject(int id) throws ApiException {
+        Project project = projectRepository.findById(id).orElseThrow(
+                () -> new ApiException("Błąd przy pobieraniu projektu",
+                        HttpStatus.BAD_REQUEST, "Nie znaleziono projektu"
+        ));
         return new ProjectDTO(project);
     }
 

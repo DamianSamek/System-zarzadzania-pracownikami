@@ -65,7 +65,7 @@ class ManagerAgreementsList extends Component {
     if(agreement.active) {
       return <tr key={agreement.id}>
         <td style={{whiteSpace: 'nowrap'}}>{agreement.id}</td>
-        <td>{agreement.user.firstName} {agreement.user.secondName}</td>
+        <td>{agreement.firstName} {agreement.secondName}</td>
         <td>{agreement.dateFrom.toString().slice(0,10)}</td>
         <td>{agreement.dateTo.toString().slice(0,10)}</td>
         <td>{agreement.salary}</td>

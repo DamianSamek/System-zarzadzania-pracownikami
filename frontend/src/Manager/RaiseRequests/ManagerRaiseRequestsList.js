@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Button, ButtonGroup, Container, Table, Row, Col} from 'reactstrap';
 import ManagerAppNavbar from '../ManagerAppNavbar';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class ManagerRaiseRequestList extends Component {
@@ -69,16 +68,16 @@ class ManagerRaiseRequestList extends Component {
   render() {
     if(localStorage.getItem("loggedUserRole")==="ROLE_MANAGER"){
     const {raiseRequests, isLoading} = this.state;
-        console.log(raiseRequests);
     if (isLoading) {
       return <p>Loading...</p>;
     }
     const raiseRequestsList = raiseRequests.map(raiseRequest => {
      if(raiseRequest.considered===false && raiseRequest.active){
       return <tr key={raiseRequest.id} className="table table-warning">
-        <td style={{whiteSpace: 'nowrap'}}>{raiseRequest.id}</td>
+        <td style={{whiteSpace: 'nowrap'}}>{raiseRequest.agreementId}</td>
         <td>{raiseRequest.firstName} {raiseRequest.secondName}</td>
         <td>{raiseRequest.salaryRequest}</td>
+        <td><ul className={"list-unstyled"}>{raiseRequest.projects.map(project => {return <li>{project.client}</li>})}</ul></td>
 
 
         <td>
@@ -93,11 +92,12 @@ class ManagerRaiseRequestList extends Component {
     const raiseRequestsHistoryList = raiseRequests.map(raiseRequest => {
       if(raiseRequest.considered===true && raiseRequest.active) {
         return <tr key = {raiseRequest.id} className={raiseRequest.accepted ? "table table-success" : "table table-danger"}>
-          <td>{raiseRequest.number}</td>
+          <td>{raiseRequest.agreementId}</td>
           <td>{raiseRequest.firstName} {raiseRequest.secondName}</td>
 
           <td>{raiseRequest.salaryRequest}</td>
           <td>{raiseRequest.accepted ? "Tak" : "Nie"}</td>
+
         </tr>
       }
       }).reverse();
@@ -112,10 +112,11 @@ class ManagerRaiseRequestList extends Component {
           <Table className="mt-4 table table-hover">
             <thead>
             <tr>
-              <th width="20%">Numer umowy</th>
-              <th width="20%">Pracownik</th>
+              <th >Numer umowy</th>
+              <th >Pracownik</th>
               <th>Propozycja</th>
-              <th width="10%">Akcja</th>
+              <th>Projekty</th>
+              <th>Akcja</th>
               
             </tr>
             </thead>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Button, Container, Form, FormGroup, Input, Label,ButtonDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'reactstrap';
+import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import ManagerAppNavbar from '../ManagerAppNavbar';
 import axios from 'axios';
 import Select from "react-select";
@@ -22,7 +22,8 @@ class ManagerAgreementEdit extends Component {
       dropdownOpen: false,
       options: [],
       dropdownValue: "",
-      selectedOption: ""
+      selectedOption: "",
+      errorMessage: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,7 +49,7 @@ class ManagerAgreementEdit extends Component {
       response => {
           const data = response.data._embedded.employee;
           this.setState({options: data, isLoading:false});
-              console.log(this.state.options);
+
       }    
     );
     }
@@ -75,7 +76,7 @@ class ManagerAgreementEdit extends Component {
     const {item} = this.state;
     item.employeeEmail = this.state.selectedOption;
 
-    await fetch((item.id)? `/api/agreement/${this.props.match.params.id}` : '/api/agreement/', {
+    await fetch((item.id) ? `/api/agreement/${this.props.match.params.id}` : '/api/agreement/', {
       method: (item.id) ? 'PATCH' : 'POST',
       headers: {
         'Accept': 'application/json',
@@ -84,7 +85,8 @@ class ManagerAgreementEdit extends Component {
       },
       body: JSON.stringify(item),
     });
-    this.props.history.push('/manager/agreement');
+    if(this.state.selectedOption!=="")
+    this.props.history.push("/manager/agreement");
   }
 
   onChangeSelect = (selectedOption) => {
@@ -96,11 +98,14 @@ class ManagerAgreementEdit extends Component {
     {
     const {item} = this.state;
     const title = <h2>{item.id ? 'Edycja umowy'  : 'Dodawanie umowy'}</h2>;
+
       const employees = this.state.options.map(option => {
-          if(option.agreement===null) {
-             return {value: option.email, label:option.firstName+" "+ option.secondName}
+        var activeAgreements =0;
+          option.agreements.map(agreement => {
+            if(agreement.active) {activeAgreements+=1}
+          })
+             if(option.enabled && activeAgreements===0) return {value: option.email, label:option.firstName+" "+ option.secondName}
           }
-      }
       ).filter(notUndefined => notUndefined);
 
     return <div>

@@ -26,19 +26,22 @@ public class Agreement {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
 
+    @NotNull
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dateFrom;
 
+    @NotNull
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dateTo;
 
+    @NotNull
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateOfCreation;
 
     @NotNull
-    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @ManyToOne
     @JoinColumn(name="id_employee")
     public Employee employee;
 
@@ -49,6 +52,7 @@ public class Agreement {
     @OneToMany(mappedBy="agreement")
     List<RaiseRequest> raiseRequests;
 
+    @NotNull
     private boolean active;
 
 }

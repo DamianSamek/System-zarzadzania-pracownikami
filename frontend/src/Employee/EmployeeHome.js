@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
-import EmployeeAppNavbar from './EmployeeAppNavbar';
 import { Link } from 'react-router-dom';
 import {
     Button,
     ButtonGroup,
     Container,
-    Nav,
-    NavItem,
-    NavLink,
     Table,
-    TabContent,
-    TabPane,
     Row,
-    Col,
-    NavbarBrand
+    Col
 } from 'reactstrap';
-import classnames from 'classnames';
 import axios from "axios";
 
 class EmployeeHome extends Component {
@@ -24,9 +16,8 @@ class EmployeeHome extends Component {
         super(props);
         this.state={
             employee: '',
-        agreement: '',
+        agreements: [],
         projects: [],
-            raiseRequests: [],
         isLoading: true};
         this.logout.bind(this);
     }
@@ -42,27 +33,7 @@ class EmployeeHome extends Component {
             .then(
                 response => {
                     const data = response.data;
-                    this.setState({employee: data, isLoading:false});
-
-                }
-            )
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
-
-        axios.get(`/api/agreement/${localStorage.getItem("loggedUserId")}`,{
-            headers: {
-                Authorization: localStorage.getItem("token")
-            }
-        })
-            .then(
-                response => {
-                    const data = response.data;
-                    this.setState({agreement: data, isLoading:false, raiseRequests: data.raiseRequests});
+                    this.setState({employee: data, isLoading:false, agreements: data.agreements});
 
                 }
             )
@@ -116,14 +87,25 @@ class EmployeeHome extends Component {
         });
 
 
-        const raiseRequestsList = this.state.raiseRequests.map(raiseRequest => {
-                return <tr className={raiseRequest.considered && raiseRequest.accepted ? "table table-success" : raiseRequest.considered ? "table table-danger" : "table table-warning"}>
-                    <td>{raiseRequest.salaryRequest}</td>
-                    <td>{raiseRequest.considered ? "Tak" : "Nie"}</td>
-                    <td>{raiseRequest.accepted ? "Tak" : "Nie"}</td>
 
-                </tr>
-            });
+
+        var activeAgreement;
+        var raiseRequests = [];
+        this.state.agreements.map(agreement => {
+            if(agreement.active) {
+                activeAgreement = agreement;
+                raiseRequests = agreement.raiseRequests;
+            }
+        });
+
+        const raiseRequestsList = raiseRequests.map(raiseRequest => {
+            return <tr className={raiseRequest.considered && raiseRequest.accepted ? "table table-success" : raiseRequest.considered ? "table table-danger" : "table table-warning"}>
+                <td>{raiseRequest.salaryRequest}</td>
+                <td>{raiseRequest.considered ? "Tak" : "Nie"}</td>
+                <td>{raiseRequest.accepted ? "Tak" : "Nie"}</td>
+
+            </tr>
+        });
 
     return (
 
@@ -163,17 +145,17 @@ class EmployeeHome extends Component {
                         <Container>
                         <h1 className="display-4">Moja umowa</h1>
 
-                            {this.state.agreement ?
+                            {activeAgreement ?
                                 <div>
-                            <p className="lead"> Numer umowy: {this.state.agreement.id}</p>
-                            <p className="lead">Data rozpoczęcia: {this.state.agreement.dateFrom}</p>
-                            <p className="lead">Data zakończenia: {this.state.agreement.dateTo}</p>
+                            <p className="lead"> Numer umowy: {activeAgreement.id}</p>
+                            <p className="lead">Data rozpoczęcia: {activeAgreement.dateFrom}</p>
+                            <p className="lead">Data zakończenia: {activeAgreement.dateTo}</p>
 
-                            <p className="lead"> Płaca: {this.state.agreement.salary}</p>
+                            <p className="lead"> Płaca: {activeAgreement.salary}</p>
 
 
                         <ButtonGroup>
-                            <Button size="sm" color="primary" tag={Link} to={"/employee/agreement/" + this.state.agreement.id}>Poproś o podwyżkę</Button>
+                            <Button size="sm" color="primary" tag={Link} to={"/employee/agreement/" + activeAgreement.id}>Poproś o podwyżkę</Button>
                         </ButtonGroup></div> : <h3>Brak aktywnej umowy</h3> }
         </Container>
             </Col>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Button, ButtonGroup, Container, Table, Row, Col } from 'reactstrap';
+import { Container, Table, Row, Col } from 'reactstrap';
 import ManagerAppNavbar from '../ManagerAppNavbar';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {Pie} from 'react-chartjs-2';
 

@@ -7,10 +7,7 @@ import ur.edu.pl.project.exceptions.ApiException;
 import ur.edu.pl.project.model.Agreement;
 import ur.edu.pl.project.model.Employee;
 import ur.edu.pl.project.model.RaiseRequest;
-import ur.edu.pl.project.model.User;
 import ur.edu.pl.project.model.dto.AgreementDTO;
-import ur.edu.pl.project.model.dto.AgreementEmployeeDto;
-import ur.edu.pl.project.model.dto.EmployeeUserDto;
 import ur.edu.pl.project.model.dto.RaiseRequestDTO;
 import ur.edu.pl.project.repositories.AgreementRepository;
 import ur.edu.pl.project.repositories.EmployeeRepository;
@@ -40,11 +37,13 @@ public class RaiseRequestService {
 
     public void createRaiseRequest(RaiseRequestDTO raiseRequestFromJSON) throws ApiException {
 
-        Agreement agreement = agreementRepository.findById(raiseRequestFromJSON.getAgreementId()).get();
+        Agreement agreement = agreementRepository.findById(raiseRequestFromJSON.getAgreementId())
+                .orElseThrow(() -> new ApiException("Błąd przy tworzeniu zapytania o podwyżkę",
+                        HttpStatus.BAD_REQUEST, "Nie znaleziono umowy"));
         Employee employee = employeeRepository.findByUserEmail(authService.currentUser().getEmail());
+        if (employee==null) throw new ApiException("Błąd przy tworzeniu zapytania o podwyżkę",
+                HttpStatus.BAD_REQUEST,"Nie znaleziono pracownika");
 
-
-        if(agreement!=null && employee!=null) {
 
             RaiseRequest raiseRequest = new RaiseRequest();
             raiseRequest.setAgreement(agreement);
@@ -55,8 +54,6 @@ public class RaiseRequestService {
             agreement.getRaiseRequests().add(raiseRequest);
 
             raiseRequestRepository.save(raiseRequest);
-        }
-        else throw new ApiException("400",HttpStatus.BAD_REQUEST,"Błąd");
     }
 
     public AgreementDTO getRaiseRequestAgreementDto(RaiseRequest raiseRequest) {
@@ -67,15 +64,15 @@ public class RaiseRequestService {
     }
 
     public void considerRaiseRequest(int id, RaiseRequest raiseRequestFromJSON) throws ApiException{
-        RaiseRequest raiseRequest = raiseRequestRepository.findById(id).get();
-        if(raiseRequest!=null){
+        RaiseRequest raiseRequest = raiseRequestRepository.findById(id).orElseThrow(() ->
+                new ApiException("Błąd przy rozpatrzaniu zapytania",
+                        HttpStatus.BAD_REQUEST,"Nie znaleziono zapytania"));
+
             raiseRequest.setConsidered(true);
             raiseRequest.setAccepted(raiseRequestFromJSON.isAccepted());
             if(raiseRequest.isAccepted()) {
                 raiseRequest.getAgreement().setSalary(raiseRequest.getSalaryRequest());
             }
             agreementRepository.save(raiseRequest.getAgreement());
-        }
-        else throw new ApiException("401", HttpStatus.BAD_REQUEST,"Nie znaleziono zapytania");
     }
 }

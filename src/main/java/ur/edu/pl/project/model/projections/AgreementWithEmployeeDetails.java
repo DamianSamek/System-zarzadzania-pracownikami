@@ -19,6 +19,10 @@ public interface AgreementWithEmployeeDetails {
     boolean isActive();
 
 
-    @Value("#{@agreementService.getAgreementEmployeeDto(target)}")
-    AgreementEmployeeDto getUser();
+    @Value("#{@agreementService.getAgreementEmployeeDto(target).getFirstName()}")
+    String getFirstName();
+
+    @Value("#{@agreementService.getAgreementEmployeeDto(target).getSecondName()}")
+    String getSecondName();
+
 }

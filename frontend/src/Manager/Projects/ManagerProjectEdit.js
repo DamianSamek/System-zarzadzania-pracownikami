@@ -65,7 +65,7 @@ class ManagerProjectEdit extends Component {
     event.preventDefault();
     const {item} = this.state;
     const employees = [];
-    const items = this.state.selectedOptions.map(item => employees.push(item.value));
+    if(this.state.selectedOptions) this.state.selectedOptions.map(item => employees.push(item.value));
     item.employees = employees
     item.finished = this.state.checked;
 
@@ -81,7 +81,6 @@ class ManagerProjectEdit extends Component {
       
       body: JSON.stringify(item),
     });
-    console.log(item);
     this.props.history.push('/manager/project');
   }
 
@@ -139,7 +138,7 @@ class ManagerProjectEdit extends Component {
           </FormGroup>
           
           <FormGroup>
-            <Button color="primary" type="submit">Zapisz</Button>{' '}
+            <Button color="primary" type="submit">Zapisz</Button>
             <Button color="secondary" tag={Link} to="/manager/project">Anuluj</Button>
           </FormGroup>
         </Form>

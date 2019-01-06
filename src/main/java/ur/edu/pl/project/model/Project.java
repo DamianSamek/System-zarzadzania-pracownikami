@@ -21,15 +21,19 @@ public class Project {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
+    @NotNull
     @Size(max=45)
     private String client;
+
+    @NotNull
     @Size(max=250)
     private String description;
 
 
-
+    @NotNull
     private int fee;
 
+    @NotNull
     private boolean finished;
 
     @ManyToMany(cascade = {CascadeType.ALL})

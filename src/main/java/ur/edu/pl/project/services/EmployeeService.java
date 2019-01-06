@@ -4,13 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import ur.edu.pl.project.exceptions.ApiException;
-import ur.edu.pl.project.exceptions.ErrorResponseCodes;
 import ur.edu.pl.project.exceptions.UserCreateException;
 import ur.edu.pl.project.model.Agreement;
 import ur.edu.pl.project.model.Employee;
+import ur.edu.pl.project.model.Project;
 import ur.edu.pl.project.model.User;
-import ur.edu.pl.project.model.dto.AgreementDTO;
+import ur.edu.pl.project.model.dto.EmployeeDTO;
 import ur.edu.pl.project.model.dto.EmployeeUserDto;
+import ur.edu.pl.project.model.dto.ProjectDTO;
 import ur.edu.pl.project.model.enums.Roles;
 import ur.edu.pl.project.repositories.EmployeeRepository;
 import ur.edu.pl.project.repositories.RoleRepository;
@@ -38,53 +39,53 @@ public class EmployeeService {
         this.authService=auth;
     }
 
-    public void createEmployee(Employee employee) throws UserCreateException {
+    public void createEmployee(EmployeeDTO employee) throws UserCreateException {
         Employee existingEmployee = employeeRepository.findByUserEmail(employee.getEmail());
 
-        createUserForEmployee(employee, existingEmployee);
-        employeeRepository.save(employee);
-    }
-
-    private void createUserForEmployee(Employee employee, Employee existingEmployee) throws UserCreateException {
-        if (existingEmployee == null) {
+        if (existingEmployee!=null)
+            throw new UserCreateException("Błąd w tworzeniu pracownika", HttpStatus.BAD_REQUEST,
+                    "Pracownik o podanym emailu istnieje.");
+        else {
             if (!stringUtils.isEmptyOrWhitespaceOnly(employee.getEmail())) {
+
+                Employee newEmployee = new Employee();
                 User newUser = new User();
+
                 newUser.setRole(roleRepository.findByRole(Roles.ROLE_EMPLOYEE.toString()));
                 newUser.setEmail(employee.getEmail());
-                newUser.setPassword(encryptionService.encode("damian"));
+                if (employee.getPassword().equals(employee.getConfirmPassword())) {
+                    newUser.setPassword(encryptionService.encode(employee.getPassword()));
+                }
+                else throw new UserCreateException("Błąd w tworzeniu pracownika",
+                        HttpStatus.BAD_REQUEST,"Hasła nie zgadzają się");
+
                 newUser.setEnabled(true);
-                employee.setEnabled(true);
                 newUser.setFirstName(employee.getFirstName());
                 newUser.setSecondName(employee.getSecondName());
                 newUser.setTokenValid(true);
 
-                employee.setUser(newUser);
-                employee.setProjects(new ArrayList<>());
-                //sendEmail("createCustomer", customer);
+                newEmployee.setEnabled(true);
+                newEmployee.setStreetAddress(employee.getStreetAddress());
+                newEmployee.setCity(employee.getCity());
+                newEmployee.setPostalCode(employee.getPostalCode());
+                newEmployee.setState(employee.getState());
+                newEmployee.setPhone(employee.getPhone());
+                newEmployee.setPosition(employee.getPosition());
+                newEmployee.setUser(newUser);
+                newEmployee.setProjects(new ArrayList<>());
+                newEmployee.setAgreements(new ArrayList<>());
+                employeeRepository.save(newEmployee);
             }
-        } else {
-            throw new UserCreateException(ErrorResponseCodes.User.USER_CREATE_ERROR, HttpStatus.BAD_REQUEST,
-                    "Pracownik o podanym emailu istnieje.");
         }
     }
 
-    public void modifyEmployee(int id, Employee employee) throws UserCreateException {
 
-        Employee existingEmployee = findEmployeeById(id);
-        setFieldsForEmployee(employee, existingEmployee);
+    public void modifyEmployee(int id, EmployeeDTO employee) throws UserCreateException {
 
-
-        employeeRepository.save(existingEmployee);
-    }
-
-    private Employee findEmployeeById(int id) throws UserCreateException {
         Employee existingEmployee = employeeRepository.findById(id)
-                .orElseThrow(() -> new UserCreateException(ErrorResponseCodes.User.USER_CREATE_ERROR,
+                .orElseThrow(() -> new UserCreateException("Błąd w edycji pracownika",
                         HttpStatus.BAD_REQUEST, "Pracownik nie istnieje."));
-        return existingEmployee;
-    }
 
-    private void setFieldsForEmployee(Employee employee, Employee existingEmployee) {
         if	(employee.getPhone() != null)
             existingEmployee.setPhone(employee.getPhone());
         if (employee.getFirstName() != null)
@@ -103,22 +104,31 @@ public class EmployeeService {
             existingEmployee.setPosition(employee.getPosition());
         if(employee.getEmail() != null)
             existingEmployee.getUser().setEmail(employee.getEmail());
+
+        employeeRepository.save(existingEmployee);
     }
 
     public EmployeeUserDto getEmployeeUserDto(Employee employee) {
         User userFromEmployee = employee.getUser();
+
+        List<ProjectDTO> projects = new ArrayList<>();
+        for (Project p : employee.getProjects()) {
+            projects.add(new ProjectDTO(p));
+        }
         return new EmployeeUserDto(employee.getId(), userFromEmployee.getFirstName(), userFromEmployee.getSecondName(),
-                userFromEmployee.getEmail());
+                userFromEmployee.getEmail(), projects);
     }
 
-    public void deleteEmployee(int id) throws ApiException{
-        Employee employee = employeeRepository.findById(id).get();
-        if(employee!=null) {
+    public void deleteEmployee(int id) throws ApiException {
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new ApiException("Błąd przy usuwaniu pracownika"
+                        ,HttpStatus.BAD_REQUEST,"Nie znaleziono pracownika"));
+
             employee.setEnabled(false);
-            if(employee.getAgreement()!=null) employee.getAgreement().setActive(false);
+            if(employee.getAgreements()!=null){
+                for(Agreement a : employee.getAgreements()) a.setActive(false);
+            }
             employeeRepository.save(employee);
-        }
-        else throw new ApiException("401",HttpStatus.BAD_REQUEST,"Nie znaleziono pracownika");
     }
 
 

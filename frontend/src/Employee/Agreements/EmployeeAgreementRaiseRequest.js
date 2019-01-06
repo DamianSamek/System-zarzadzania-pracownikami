@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Button, Container, Form, FormGroup, Input, Col, Row, Label,ButtonDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'reactstrap';
-import EmployeeAppNavbar from '../EmployeeAppNavbar';
-import axios from 'axios';
+import { Button, Container, Form, FormGroup, Input, Col, Row, Label} from 'reactstrap';
 
 class EmployeeAgreementRaiseRequest extends Component {
 

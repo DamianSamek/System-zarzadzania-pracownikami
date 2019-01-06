@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.rest.core.config.Projection;
 import ur.edu.pl.project.model.Employee;
 import ur.edu.pl.project.model.RaiseRequest;
+import ur.edu.pl.project.model.dto.ProjectDTO;
+
+import java.util.List;
 
 @Projection(name="withAgreementAndEmployee", types= {RaiseRequest.class})
 public interface RaiseRequestWithAgreementAndEmployee {
@@ -24,6 +27,9 @@ public interface RaiseRequestWithAgreementAndEmployee {
 
     @Value("#{@raiseRequestService.getRaiseRequestAgreementDto(target).isActive()}")
     boolean isActive();
+
+    @Value("#{@employeeService.getEmployeeUserDto(target.getEmployee()).getProjects()}")
+    List<ProjectDTO> getProjects();
 
 
 
