@@ -48,6 +48,21 @@ public class RaiseRequestServiceTest {
     }
 
     @Test
+    public void createRaiseRequest_SaveToRepositoryMethod() {
+        RaiseRequest raiseRequest = new RaiseRequest();
+        when(raiseRequestRepository.save(raiseRequest)).thenReturn(raiseRequest);
+        assertEquals(raiseRequestRepository.save(raiseRequest),raiseRequest);
+    }
+
+    @Test
+    public void considerRaiseRequest_SaveToRepositoryMethod() {
+        RaiseRequest raiseRequest = new RaiseRequest();
+        raiseRequest.setAgreement(new Agreement());
+        when(agreementRepository.save(raiseRequest.getAgreement())).thenReturn(raiseRequest.getAgreement());
+        assertEquals(agreementRepository.save(raiseRequest.getAgreement()),raiseRequest.getAgreement());
+    }
+
+    @Test
     public void createRaiseRequest_IfAgreementNotFoundShouldThrowAnException() {
         when(agreementRepository.findById(any())).thenReturn(Optional.empty());
         assertThrows(ApiException.class, () -> {

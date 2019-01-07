@@ -22,7 +22,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
@@ -43,6 +43,30 @@ public class ProjectServiceTest {
     @BeforeEach
     public void initMocks() {
         MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void createProject_TestSaveToRepositoryMethod() {
+        Project project = new Project();
+        when(projectRepositoryMock.save(project)).thenReturn(project);
+        assertEquals(projectRepositoryMock.save(project),project);
+    }
+
+    @Test
+    public void updateProject_TestSaveToRepositoryMethod() {
+        Project existingProject = new Project();
+        when(projectRepositoryMock.save(existingProject)).thenReturn(existingProject);
+        assertEquals(projectRepositoryMock.save(existingProject),existingProject);
+    }
+
+    @Test
+    public void deleteProject_TestDeleteFromRepositoryMethod() {
+
+        Project existingProject = new Project();
+        projectRepositoryMock.save(existingProject);
+        projectRepositoryMock.delete(existingProject);
+        verify(projectRepositoryMock, times(1)).delete(existingProject);
+
     }
 
     @Test

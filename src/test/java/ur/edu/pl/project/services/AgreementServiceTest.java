@@ -46,6 +46,30 @@ public class AgreementServiceTest {
     }
 
     @Test
+    public void createAgreement_TestSaveToRepositoryMethod() {
+
+
+            Agreement agreement = new Agreement();
+            agreement.setDateFrom(new Date());
+            agreement.setDateTo(new Date());
+            agreement.setSalary(2000);
+            agreement.setDateOfCreation(new Date());
+            agreement.setActive(true);
+
+        when(agreementRepositoryMock.save(agreement)).thenReturn(agreement);
+
+        assertEquals(agreementRepositoryMock.save(agreement),agreement);
+    }
+
+    @Test
+    public void deleteAgreement_TestSaveToRepositoryMethod() {
+
+        Agreement agreement = new Agreement();
+        agreement.setActive(false);
+        when(agreementRepositoryMock.save(agreement)).thenReturn(agreement);
+        assertEquals(agreementRepositoryMock.save(agreement),agreement);
+    }
+    @Test
     public void createAgreement_IfEmployeeNotExistShouldThrowAnException() throws ApiException {
         when(employeeRepository.findByUserEmail("")).thenReturn(null);
 

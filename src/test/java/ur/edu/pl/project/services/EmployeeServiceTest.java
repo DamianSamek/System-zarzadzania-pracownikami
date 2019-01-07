@@ -49,6 +49,31 @@ public class EmployeeServiceTest {
     }
 
     @Test
+    public void createEmployee_TestSaveToRepositoryMethod() {
+
+        Employee newEmployee = new Employee();
+        when(employeeRepositoryMock.save(newEmployee)).thenReturn(newEmployee);
+        assertEquals(employeeRepositoryMock.save(newEmployee),newEmployee);
+    }
+
+    @Test
+    public void updateEmployee_TestSaveToRepositoryMethod() {
+
+        Employee existingEmployee = new Employee();
+
+        when(employeeRepositoryMock.save(existingEmployee)).thenReturn(existingEmployee);
+        assertEquals(employeeRepositoryMock.save(existingEmployee),existingEmployee);
+    }
+
+    @Test
+    public void deleteEmployee_TestSaveToRepositoryMethod() {
+
+        Employee employee = new Employee();
+        when(employeeRepositoryMock.save(employee)).thenReturn(employee);
+        assertEquals(employeeRepositoryMock.save(employee),employee);
+    }
+
+    @Test
     public void createEmployee_IfEmployeeAlreadyExistsShouldThrowAnException() throws UserCreateException{
             when(employeeRepositoryMock.findByUserEmail("damian@firma.pl")).thenReturn(new Employee());
             assertThrows(UserCreateException.class, () -> {Employee existingEmployee = employeeRepositoryMock.findByUserEmail("damian@firma.pl");
