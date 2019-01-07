@@ -54,10 +54,31 @@ public class UserServiceTest {
     }
 
     @Test
+    public void getEmployeeData_IfUserFoundShouldNotThrowAnException() {
+
+        when(userRepository.findById(any())).thenReturn(Optional.of(new User()));
+        assertDoesNotThrow(() -> {
+            User user = userRepository.findById(0).orElseThrow(
+                    () -> new ApiException("Błąd", HttpStatus.BAD_REQUEST,"Nie znaleziono użytkownika")
+            );
+        });
+    }
+
+    @Test
     public void getEmployeeData_IfEmployeeNotFoundShouldThrowAnException() {
 
         when(employeeRepository.findByUserId(0)).thenReturn(null);
         assertThrows(ApiException.class, () -> {
+            Employee employee=employeeRepository.findByUserId(0);
+            if (employee==null) throw new ApiException("Błąd",HttpStatus.BAD_REQUEST,"Nie znaleziono pracownika");
+        });
+    }
+
+    @Test
+    public void getEmployeeData_IfEmployeeFoundShouldNotThrowAnException() {
+
+        when(employeeRepository.findByUserId(0)).thenReturn(new Employee());
+        assertDoesNotThrow(() -> {
             Employee employee=employeeRepository.findByUserId(0);
             if (employee==null) throw new ApiException("Błąd",HttpStatus.BAD_REQUEST,"Nie znaleziono pracownika");
         });

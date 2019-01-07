@@ -74,7 +74,7 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void createEmployee_IfEmployeeAlreadyExistsShouldThrowAnException() throws UserCreateException{
+    public void createEmployee_IfEmployeeAlreadyExistsShouldThrowAnException() {
             when(employeeRepositoryMock.findByUserEmail("damian@firma.pl")).thenReturn(new Employee());
             assertThrows(UserCreateException.class, () -> {Employee existingEmployee = employeeRepositoryMock.findByUserEmail("damian@firma.pl");
                 if (existingEmployee!=null)
@@ -82,16 +82,44 @@ public class EmployeeServiceTest {
                             "Pracownik o podanym emailu istnieje.");});
         }
 
-        @Before
-        public void set() {
-        employeeDTO = new EmployeeDTO();
-        employeeDTO.setPassword("damian");
-        employeeDTO.setConfirmPassword("damain");
-        }
+    @Test
+    public void createEmployee_IfEmployeeNotExistShouldNotThrowAnException() {
+        when(employeeRepositoryMock.findByUserEmail("damian@firma.pl")).thenReturn(null);
+        assertDoesNotThrow(() -> {Employee existingEmployee = employeeRepositoryMock.findByUserEmail("damian@firma.pl");
+            if (existingEmployee!=null)
+                throw new UserCreateException("Błąd w tworzeniu pracownika", HttpStatus.BAD_REQUEST,
+                        "Pracownik o podanym emailu istnieje.");});
+    }
+
+
+
+
     @Test
     public void createEmployee_IfPasswordAndConfirmPasswordNotMatchShouldThrowAnException(){
 
+        employeeDTO = new EmployeeDTO();
+        employeeDTO.setPassword("damian");
+        employeeDTO.setConfirmPassword("damain");
         assertThrows(UserCreateException.class, () -> {
+            if (employeeDTO.getPassword().equals(employeeDTO.getConfirmPassword())) {
+                //newUser.setPassword(encryptionService.encode(employee.getPassword()));
+            }
+            else throw new UserCreateException("Błąd w tworzeniu pracownika",
+                    HttpStatus.BAD_REQUEST,"Hasła nie zgadzają się");
+        });
+    }
+
+
+
+
+    @Test
+    public void createEmployee_IfPasswordAndConfirmPasswordMatchShouldNotThrowAnException(){
+
+        employeeDTO = new EmployeeDTO();
+        employeeDTO.setPassword("damian");
+        employeeDTO.setConfirmPassword("damian");
+
+        assertDoesNotThrow(() -> {
             if (employeeDTO.getPassword().equals(employeeDTO.getConfirmPassword())) {
                 //newUser.setPassword(encryptionService.encode(employee.getPassword()));
             }
@@ -112,10 +140,32 @@ public class EmployeeServiceTest {
     }
 
     @Test
+    public void modifyEmployee_IfEmployeeExistShouldNotThrowAnException() {
+
+        when(employeeRepositoryMock.findById(0)).thenReturn(Optional.of(new Employee()));
+        assertDoesNotThrow(() -> {
+            Employee existingEmployee = employeeRepositoryMock.findById(0)
+                    .orElseThrow(() -> new UserCreateException("Błąd w edycji pracownika",
+                            HttpStatus.BAD_REQUEST, "Pracownik nie istnieje."));
+        });
+    }
+
+    @Test
     public void deleteEmployee_IfEmployeeDoesntExistShouldThrowAnException() {
 
         when(employeeRepositoryMock.findById(0)).thenReturn(Optional.empty());
         assertThrows(ApiException.class, () -> {
+            Employee employee = employeeRepositoryMock.findById(0)
+                    .orElseThrow(() -> new ApiException("Błąd przy usuwaniu pracownika"
+                            ,HttpStatus.BAD_REQUEST,"Nie znaleziono pracownika"));
+        });
+    }
+
+    @Test
+    public void deleteEmployee_IfEmployeeExistShouldNotThrowAnException() {
+
+        when(employeeRepositoryMock.findById(0)).thenReturn(Optional.of(new Employee()));
+        assertDoesNotThrow(() -> {
             Employee employee = employeeRepositoryMock.findById(0)
                     .orElseThrow(() -> new ApiException("Błąd przy usuwaniu pracownika"
                             ,HttpStatus.BAD_REQUEST,"Nie znaleziono pracownika"));

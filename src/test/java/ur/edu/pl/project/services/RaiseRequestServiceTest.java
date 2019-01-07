@@ -73,6 +73,16 @@ public class RaiseRequestServiceTest {
     }
 
     @Test
+    public void createRaiseRequest_IfAgreementFoundShouldNotThrowAnException() {
+        when(agreementRepository.findById(any())).thenReturn(Optional.of(new Agreement()));
+        assertDoesNotThrow(() -> {
+            Agreement agreement = agreementRepository.findById(0)
+                    .orElseThrow(() -> new ApiException("Błąd przy tworzeniu zapytania o podwyżkę",
+                            HttpStatus.BAD_REQUEST, "Nie znaleziono umowy"));
+        });
+    }
+
+    @Test
     public void createRaiseRequest_IfEmployeeNotFoundShouldThrowAnException() {
         when(employeeRepository.findByUserEmail("")).thenReturn(null);
         assertThrows(ApiException.class, () -> {
@@ -83,10 +93,31 @@ public class RaiseRequestServiceTest {
     }
 
     @Test
-    public void considerRaiseRequest() {
+    public void createRaiseRequest_IfEmployeeFoundShouldNotThrowAnException() {
+        when(employeeRepository.findByUserEmail("")).thenReturn(new Employee());
+        assertDoesNotThrow(() -> {
+            Employee employee = employeeRepository.findByUserEmail("");
+            if (employee==null) throw new ApiException("Błąd przy tworzeniu zapytania o podwyżkę",
+                    HttpStatus.BAD_REQUEST,"Nie znaleziono pracownika");
+        });
+    }
+
+    @Test
+    public void considerRaiseRequest_IfRaiseRequestNotFoundShouldThrowAnException() {
 
         when(raiseRequestRepository.findById(any())).thenReturn(Optional.empty());
         assertThrows(ApiException.class, () -> {
+            RaiseRequest raiseRequest = raiseRequestRepository.findById(0).orElseThrow(() ->
+                    new ApiException("Błąd przy rozpatrzaniu zapytania",
+                            HttpStatus.BAD_REQUEST,"Nie znaleziono zapytania"));
+        });
+    }
+
+    @Test
+    public void considerRaiseRequest_IfRaiseRequestFoundShouldNotThrowAnException() {
+
+        when(raiseRequestRepository.findById(any())).thenReturn(Optional.of(new RaiseRequest()));
+        assertDoesNotThrow(() -> {
             RaiseRequest raiseRequest = raiseRequestRepository.findById(0).orElseThrow(() ->
                     new ApiException("Błąd przy rozpatrzaniu zapytania",
                             HttpStatus.BAD_REQUEST,"Nie znaleziono zapytania"));
