@@ -46,7 +46,7 @@ class AgreementServiceTest {
     }
 
     @Test
-    void createAgreement_IfEmployeeNotExistShouldThrowAnException() throws ApiException {
+    public void createAgreement_IfEmployeeNotExistShouldThrowAnException() throws ApiException {
         when(employeeRepository.findByUserEmail("")).thenReturn(null);
 
         assertThrows(ApiException.class, () -> {
@@ -57,7 +57,7 @@ class AgreementServiceTest {
     }
 
     @Test
-    void createAgreement_IfEmployeeAlreadyHasActiveAgreementShouldThrowAnException() throws ApiException {
+    public void createAgreement_IfEmployeeAlreadyHasActiveAgreementShouldThrowAnException() throws ApiException {
 
         List<Agreement> existingAgreements = new ArrayList<>();
         Agreement a = new Agreement();
@@ -81,7 +81,7 @@ class AgreementServiceTest {
     }
 
     @Test
-    void getAgreement_IfAgreementDoesntExistShouldThrowAnException() {
+    public void getAgreement_IfAgreementDoesntExistShouldThrowAnException() {
         when(agreementRepositoryMock.findById(0)).thenReturn(Optional.empty());
         assertThrows(ApiException.class, () -> {
             Agreement agreement = agreementRepositoryMock.findById(0)
@@ -90,7 +90,7 @@ class AgreementServiceTest {
     }
 
     @Test
-    void getAgreementForEmployee_IfEmployeeNotFoundShouldThrowAnException() {
+    public void getAgreementForEmployee_IfEmployeeNotFoundShouldThrowAnException() {
         when(employeeRepository.findByUserId(0)).thenReturn(null);
         assertThrows(ApiException.class, () -> {
             Employee employee = employeeRepository.findByUserId(0);
@@ -99,7 +99,7 @@ class AgreementServiceTest {
     }
 
     @Test
-    void getAgreementForEmployee_IfAgreementNotFoundShouldThrowAnException() {
+    public void getAgreementForEmployee_IfAgreementNotFoundShouldThrowAnException() {
         when(agreementRepositoryMock.findByEmployeeId(0)).thenReturn(null);
         assertThrows(ApiException.class, () -> {
             Agreement agreement = agreementRepositoryMock.findByEmployeeId(0);
@@ -109,7 +109,7 @@ class AgreementServiceTest {
 
 
    @Test
-    void deleteAgreement_IfAgreementNotFoundShouldThrowAnException() {
+    public void deleteAgreement_IfAgreementNotFoundShouldThrowAnException() {
 
         when(agreementRepositoryMock.findById(any())).thenReturn(Optional.empty());
        assertThrows(ApiException.class, () -> {

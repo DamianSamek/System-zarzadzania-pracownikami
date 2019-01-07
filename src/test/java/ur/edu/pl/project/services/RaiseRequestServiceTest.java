@@ -48,7 +48,7 @@ class RaiseRequestServiceTest {
     }
 
     @Test
-    void createRaiseRequest_IfAgreementNotFoundShouldThrowAnException() {
+    public void createRaiseRequest_IfAgreementNotFoundShouldThrowAnException() {
         when(agreementRepository.findById(any())).thenReturn(Optional.empty());
         assertThrows(ApiException.class, () -> {
             Agreement agreement = agreementRepository.findById(0)
@@ -58,7 +58,7 @@ class RaiseRequestServiceTest {
     }
 
     @Test
-    void createRaiseRequest_IfEmployeeNotFoundShouldThrowAnException() {
+    public void createRaiseRequest_IfEmployeeNotFoundShouldThrowAnException() {
         when(employeeRepository.findByUserEmail("")).thenReturn(null);
         assertThrows(ApiException.class, () -> {
             Employee employee = employeeRepository.findByUserEmail("");
@@ -68,7 +68,7 @@ class RaiseRequestServiceTest {
     }
 
     @Test
-    void considerRaiseRequest() {
+    public void considerRaiseRequest() {
 
         when(raiseRequestRepository.findById(any())).thenReturn(Optional.empty());
         assertThrows(ApiException.class, () -> {

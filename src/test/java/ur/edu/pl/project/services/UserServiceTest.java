@@ -43,7 +43,7 @@ class UserServiceTest {
     }
 
     @Test
-    void getEmployeeData_IfUserNotFoundShouldThrowAnException() {
+    public void getEmployeeData_IfUserNotFoundShouldThrowAnException() {
 
         when(userRepository.findById(any())).thenReturn(Optional.empty());
         assertThrows(ApiException.class, () -> {
@@ -54,7 +54,7 @@ class UserServiceTest {
     }
 
     @Test
-    void getEmployeeData_IfEmployeeNotFoundShouldThrowAnException() {
+    public void getEmployeeData_IfEmployeeNotFoundShouldThrowAnException() {
 
         when(employeeRepository.findByUserId(0)).thenReturn(null);
         assertThrows(ApiException.class, () -> {

@@ -46,7 +46,7 @@ class ProjectServiceTest {
     }
 
     @Test
-    void createProject_IfEmployeeDoesntExistShouldThrowAnException() {
+    public void createProject_IfEmployeeDoesntExistShouldThrowAnException() {
 
         projectDTO = new ProjectDTO();
         projectDTO.setEmployees(new ArrayList<>());
@@ -64,7 +64,7 @@ class ProjectServiceTest {
 
 
     @Test
-    void updateProject_IfProjectNotExistShouldThrowAnException() {
+    public void updateProject_IfProjectNotExistShouldThrowAnException() {
 
         when(projectRepositoryMock.findById(any())).thenReturn(Optional.empty());
         assertThrows(ApiException.class, () -> {
@@ -75,7 +75,7 @@ class ProjectServiceTest {
     }
 
     @Test
-    void deleteProject_IfProjectNotExistShouldThrowAnException() {
+    public void deleteProject_IfProjectNotExistShouldThrowAnException() {
         when(projectRepositoryMock.findById(any())).thenReturn(Optional.empty());
         assertThrows(ApiException.class, () -> {
             Project existingProject = projectRepositoryMock.findById(0)
@@ -85,7 +85,7 @@ class ProjectServiceTest {
     }
 
     @Test
-    void getProjects_IfEmployeeNotExistShouldThrowAnException() {
+    public void getProjects_IfEmployeeNotExistShouldThrowAnException() {
         when(employeeRepositoryMock.findByUserId(0)).thenReturn(null);
         assertThrows(ApiException.class, () -> {
             Employee employee = employeeRepositoryMock.findByUserId(0);
@@ -95,7 +95,7 @@ class ProjectServiceTest {
     }
 
     @Test
-    void getProject_IfProjectNotExistShouldThrowAnException() {
+    public void getProject_IfProjectNotExistShouldThrowAnException() {
         when(projectRepositoryMock.findById(any())).thenReturn(Optional.empty());
         assertThrows(ApiException.class, () -> {
             Project project = projectRepositoryMock.findById(0).orElseThrow(
