@@ -25,23 +25,23 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
-class AgreementServiceTest {
+public class AgreementServiceTest {
 
     @Mock
-    AgreementRepository agreementRepositoryMock;
+    public AgreementRepository agreementRepositoryMock;
 
     @Mock
-    EmployeeRepository employeeRepository;
+    public EmployeeRepository employeeRepository;
 
     @Mock
-    AuthService authService;
+    public AuthService authService;
 
     @InjectMocks
-    AgreementService agreementService;
+    public AgreementService agreementService;
 
 
     @BeforeEach
-    void initMocks() {
+    public void initMocks() {
         MockitoAnnotations.initMocks(this);
     }
 

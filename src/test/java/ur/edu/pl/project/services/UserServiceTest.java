@@ -24,21 +24,21 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
-class UserServiceTest {
+public class UserServiceTest {
 
     @Mock
-    UserRepository userRepository;
+    public UserRepository userRepository;
 
     @Mock
-    EmployeeRepository employeeRepository;
+    public EmployeeRepository employeeRepository;
 
     @InjectMocks
-    ProjectService projectService;
+    public ProjectService projectService;
 
 
 
     @BeforeEach
-    void initMocks() {
+    public void initMocks() {
         MockitoAnnotations.initMocks(this);
     }
 

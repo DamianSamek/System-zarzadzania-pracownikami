@@ -33,18 +33,18 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 public class EmployeeServiceTest {
 
-    EmployeeDTO employeeDTO;
+    public EmployeeDTO employeeDTO;
 
     @Mock
-    EmployeeRepository employeeRepositoryMock;
+    public EmployeeRepository employeeRepositoryMock;
 
     @InjectMocks
-    EmployeeService employeeService;
+    public EmployeeService employeeService;
 
 
 
     @BeforeEach
-    void initMocks() {
+    public void initMocks() {
         MockitoAnnotations.initMocks(this);
     }
 
