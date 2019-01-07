@@ -39,18 +39,21 @@ class ManagerAgreementsList extends Component {
   }
 
   async remove(id) {
-    await fetch(`/api/agreement/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem("token")
-      }})
-      .then(() => {
-        let updatedAgreements = [...this.state.agreements].filter(i => i.id !== id);;
-        this.setState({agreements: updatedAgreements});
-      });
-    
+    if(window.confirm("Czy na pewno chcesz zwolnić tego pracownika?")) {
+      await fetch(`/api/agreement/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem("token")
+        }
+      })
+          .then(() => {
+            let updatedAgreements = [...this.state.agreements].filter(i => i.id !== id);
+            ;
+            this.setState({agreements: updatedAgreements});
+          });
+    }
   }
 
   render() {

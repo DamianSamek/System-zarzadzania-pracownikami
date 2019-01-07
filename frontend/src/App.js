@@ -12,7 +12,6 @@ import IncomesJournal from './Manager/IncomesJournal/IncomesJournal';
 import Login from './Components/Login';
 import EmployeeHome from './Employee/EmployeeHome';
 import EmployeeAgreementRaiseRequest from './Employee/Agreements/EmployeeAgreementRaiseRequest';
-import EmployeeProjectsList from './Employee/Projects/EmployeeProjectsList';
 import ExpensesJournal from "./Manager/ExpensesJournal/ExpensesJournal";
 
 class App extends Component {
@@ -31,7 +30,6 @@ class App extends Component {
           <Route path='/manager/incomes' exact={true} component = {IncomesJournal}/>
           <Route path='/employee' exact={true} component={EmployeeHome}/>
           <Route path='/employee/agreement/:id' exact={true} component={EmployeeAgreementRaiseRequest} />
-          <Route path='/employee/project' exact={true} component={EmployeeProjectsList}/>
           <Route path='/manager/expenses' exact component={ExpensesJournal}/>
           
           

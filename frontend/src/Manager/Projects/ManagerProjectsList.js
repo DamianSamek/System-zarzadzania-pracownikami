@@ -39,17 +39,19 @@ class ManagerProjectsList extends Component {
   }
 
   async remove(id) {
-    await fetch(`/api/project/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem("token")
-      }
-    }).then(() => {
-      let updatedProjects = [...this.state.projects].filter(i => i.id !== id);
-      this.setState({projects: updatedProjects});
-    });
+    if(window.confirm("Czy na pewno chcesz usunąć ten projekt? ")) {
+      await fetch(`/api/project/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem("token")
+        }
+      }).then(() => {
+        let updatedProjects = [...this.state.projects].filter(i => i.id !== id);
+        this.setState({projects: updatedProjects});
+      });
+    }
   }
 
   render() {

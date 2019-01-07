@@ -13,8 +13,8 @@ class Login extends Component {
     super();
    
     this.state = {
-     username: '',
-     password: '',
+     username: '1',
+     password: '2',
      redirectToReferrer : false,
      userRole: ''
          };
@@ -64,18 +64,6 @@ class Login extends Component {
     
 
      return (
-      // <div className="row" id="Body">
-      //   <div className="medium-5 columns left">
-      //   <h4>Login</h4>
-      //   <label>Username</label>
-      //   <input type="text" name="username" placeholder="Username" onChange={this.onChange}/>
-      //   <label>Password</label>
-      //   <input type="password" name="password"  placeholder="Password" onChange={this.onChange}/>
-      //   <input type="submit" className="button success" value="Login" onClick={this.login}/>
-      //   <a href="/signup">Registration</a>
-      //   </div>
-      // </div>
-
          <Row><Col sm={{size: 4, offset: 4}}>
   <Container className="App">
     <h2>Zaloguj się</h2>
@@ -87,17 +75,9 @@ class Login extends Component {
             type="text"
             name="username"
             id="exampleEmail"
-            // valid={ this.state.validate.emailState === 'has-success' }
-            // invalid={ this.state.validate.emailState === 'has-danger' }
+            required
             onChange={ this.onChange }
           />
-          {/* <FormFeedback valid>
-            That's a tasty looking email you've got there.
-          </FormFeedback>
-          <FormFeedback>
-            Uh oh! Looks like there is an issue with your email. Please input a correct email.
-          </FormFeedback>
-          <FormText>Your username is most likely your email.</FormText> */}
         </FormGroup>
       </Col>
       <Col>
@@ -108,6 +88,8 @@ class Login extends Component {
             name="password"
             id="examplePassword"
             onChange={ this.onChange }
+            required
+
         />
         </FormGroup>
       </Col>

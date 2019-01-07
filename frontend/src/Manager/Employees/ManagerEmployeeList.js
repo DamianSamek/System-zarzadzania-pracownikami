@@ -39,6 +39,8 @@ class ManagerEmployeeList extends Component {
   }
 
   async remove(id) {
+    if(window.confirm("Czy na pewno chcesz zwolnić tego pracownika?"))
+    {
     await fetch(`/api/employee/${id}`, {
       method: 'DELETE',
       headers: {
@@ -50,7 +52,7 @@ class ManagerEmployeeList extends Component {
       let updatedEmployees = [...this.state.employees].filter(i => i.id !== id);
       this.setState({employees: updatedEmployees});
     });
-  }
+  }}
 
   render() {
     if(localStorage.getItem("loggedUserRole")==="ROLE_MANAGER"){
