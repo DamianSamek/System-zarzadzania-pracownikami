@@ -39,7 +39,7 @@ class ManagerAgreementsList extends Component {
   }
 
   async remove(id) {
-    if(window.confirm("Czy na pewno chcesz zwolnić tego pracownika?")) {
+    if(window.confirm("Czy na pewno chcesz zakończyć tę umowę?")) {
       await fetch(`/api/agreement/${id}`, {
         method: 'DELETE',
         headers: {

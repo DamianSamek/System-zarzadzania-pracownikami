@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Container, Form, FormGroup, Input, Label, Row, Col } from 'reactstrap';
 import ManagerAppNavbar from '../ManagerAppNavbar';
 import axios from 'axios';
 import Select from "react-select";
@@ -115,6 +115,7 @@ class ManagerAgreementEdit extends Component {
 
     return <div>
       <ManagerAppNavbar/>
+      <Col sm={{size: 6, offset: 3}}>
       <Container>
         {title}
         {item.id ? <Form onSubmit={this.handleSubmit}>
@@ -173,6 +174,7 @@ class ManagerAgreementEdit extends Component {
         </Form>}
         
       </Container>
+      </Col>
     </div>
   }else return <div>BRAK DOSTĘPU</div>
 }

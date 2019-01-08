@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Container, Form, FormGroup, Input, Label, Row, Col } from 'reactstrap';
 import ManagerAppNavbar from '../ManagerAppNavbar';
 import axios from 'axios';
 
@@ -105,6 +105,7 @@ class ManagerEmployeeEdit extends Component {
       <Container>
         {title}
         {item.id ? <Form onSubmit={this.handleSubmit}>
+          <Row><Col sm="6">
           <FormGroup>
             <Label for="firstName">Imię</Label>
             <Input required type="text" name="firstName" id="firstName" value={item.firstName || ''}
@@ -134,6 +135,8 @@ class ManagerEmployeeEdit extends Component {
             <Input required type="text" name="position" id="position" value={item.position || ''}
                    onChange={this.handleChange} autoComplete="address-level1"/>
 
+          </Col>
+            <Col sm="6">
               <FormGroup>
               </FormGroup>
               <Label for="phone">Ulica</Label>
@@ -164,9 +167,11 @@ class ManagerEmployeeEdit extends Component {
             <Button color="primary" type="submit">Zapisz</Button>{' '}
             <Button color="secondary" tag={Link} to="/manager/employee">Anuluj</Button>
           </FormGroup>
+            </Col></Row>
         </Form> :
       
       <Form onSubmit={this.handleSubmit}>
+        <Row><Col sm="6">
       <FormGroup>
         <Label for="firstName">Imię</Label>
         <Input required type="text" name="firstName" id="firstName" value={item.firstName || ''}
@@ -199,7 +204,8 @@ class ManagerEmployeeEdit extends Component {
         <Label for="phone">Ulica</Label>
         <Input required type="text" name="streetAddress" id="streetAddress" value={item.streetAddress || ''}
                onChange={this.handleChange} autoComplete="address-level1"/>         
-            
+        </Col>
+          <Col sm="6">
             <FormGroup>
         </FormGroup>
         <Label for="phone">Miejscowość</Label>
@@ -233,6 +239,7 @@ class ManagerEmployeeEdit extends Component {
         <Button color="primary" type="submit">Zapisz</Button>{' '}
         <Button color="secondary" tag={Link} to="/manager/employee">Anuluj</Button>
       </FormGroup>
+          </Col></Row>
     </Form>
       }
         

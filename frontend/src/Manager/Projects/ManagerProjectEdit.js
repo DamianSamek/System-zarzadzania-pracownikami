@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Container, Form, FormGroup, Input, Label, Col } from 'reactstrap';
 import ManagerAppNavbar from '../ManagerAppNavbar';
 import Select from 'react-select';
 import makeAnimated from 'react-select/lib/animated';
@@ -94,8 +94,10 @@ class ManagerProjectEdit extends Component {
 
   render() {
 
-    const techCompanies = this.state.options.map(option =>
-        ({value: option.email, label:option.firstName+" "+ option.secondName}));
+    const techCompanies = this.state.options.map(option =>{
+          if (option.enabled) return ({value: option.email, label:option.firstName+" "+ option.secondName})
+    }
+        ).filter(notUndefined => notUndefined);
 
     if(localStorage.getItem("loggedUserRole")==="ROLE_MANAGER")
     {
@@ -107,6 +109,7 @@ class ManagerProjectEdit extends Component {
 
       
       <ManagerAppNavbar/>
+      <Col sm={{size: 6, offset: 3}}>
       <Container>
         {title}
         <Form onSubmit={this.handleSubmit}>
@@ -143,6 +146,7 @@ class ManagerProjectEdit extends Component {
           </FormGroup>
         </Form>
       </Container>
+      </Col>
     </div>);} else return <div>BRAK DOSTĘPU</div>
   }
 }
